@@ -47,7 +47,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rubocop', require: false
   gem 'simplecov', require: false
-  
+  # Manage Procfile-based applications
+  gem 'foreman'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 end
