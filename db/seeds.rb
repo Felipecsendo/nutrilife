@@ -7,4 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Admin.create!(email: 'admin@admin.com', password: '123456', password_confirmation: '123456')
-Blog.create!(title: 'Emagrecer', body: 'Passos para emagrecer...', admin: admin )
+
+10.times do
+  Blog.create!(title: Faker::Dessert.variety, body: LeroleroGenerator.sentence(3), admin: Admin.first)
+end
+
+3.times do
+  Category.create!(description: Faker::Lorem.word)
+end

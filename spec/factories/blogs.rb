@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :blog do
-    title "MyString"
-    body "MyText"
-    admin nil
+    title {Faker::Dessert.variety}
+    body {LeroleroGenerator.sentence(3)}
+    admin Admin.first
   end
 end

@@ -51,6 +51,10 @@ group :development, :test do
   gem 'foreman'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  # A library for generating fake data such as names, addresses, and phone numbers. 
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+  # O Lero-lero Generator é uma ferramenta capaz de gerar frases que 'falam' muita coisa mas que não tem conteúdo algum. 
+  gem 'lerolero_generator'
 end
 
 group :development do
