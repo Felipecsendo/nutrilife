@@ -1,2 +1,13 @@
 <h1>NutriLife</h1>
 <p>Bem-vindo ao Mundo Saudável</p>
+
+
+<% @blogs.each do |blog| %>
+<h3><%= blog.title %></h3>
+<li><%= blog.body %></li>
+<li><%= blog.created_at %></li>
+<% end %>
+
+<% @categories.each do |category| %>
+<a href='#'><%= category.description %></a>
+<% end %>
