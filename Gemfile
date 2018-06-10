@@ -36,6 +36,12 @@ gem 'devise'
 # Translations for devise gem
 gem 'devise-i18n'
 
+gem 'rails-assets-bootstrap', source: 'https://rails-assets.org'
+gem 'rails-assets-popper.js', source: 'https://rails-assets.org'
+
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

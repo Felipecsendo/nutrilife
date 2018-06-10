@@ -12,4 +12,10 @@
  *
  *= require_tree .
  *= require_self
+
+ *= require others/font-awesome.min.css
+ *= require others/animate.css
+ *= require others/meanmenu.min.css
  */
+ 
+ 

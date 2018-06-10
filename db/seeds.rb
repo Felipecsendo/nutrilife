@@ -13,5 +13,5 @@ Admin.create!(email: 'admin@admin.com', password: '123456', password_confirmatio
 end
 
 3.times do
-  Category.create!(description: Faker::Lorem.word)
+  Category.create!(description: Faker::Commerce.department(2, true))
 end

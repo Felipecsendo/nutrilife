@@ -10,9 +10,9 @@ feature 'Visitor visit homepage' do
   
   scenario 'and see the Blogs' do
     #cria os dados necessários
-    admin = Admin.create(email: 'admin@admin.com', password: '123456', password_confirmation: '123456')
-    blog = Blog.create(title: 'Emagrecer', body: 'Passos para emagrecer...', admin: admin )
-    blog2 = Blog.create(title: 'Engordar', body: 'Passos para engordar...', admin: admin )
+    admin = create(:admin )
+    blog = create( :blog )
+    blog2 = create( :blog )
   
     # simula a ação do usuário
     visit root_path
@@ -28,8 +28,8 @@ feature 'Visitor visit homepage' do
 
   scenario 'and see the categories' do
     #cria os dados necessários
-    category1 = Category.create(description: 'Receitas')
-    category2 = Category.create(description: 'Exercícios')
+    category1 = create(:category )
+    category2 = create(:category )
     
   
     # simula a ação do usuário
