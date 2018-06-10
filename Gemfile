@@ -38,6 +38,8 @@ gem 'devise-i18n'
 
 gem 'rails-assets-bootstrap', source: 'https://rails-assets.org'
 gem 'rails-assets-popper.js', source: 'https://rails-assets.org'
+# Font-Awesome SASS gem for use in Ruby on Rails projects 
+gem 'font-awesome-sass'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

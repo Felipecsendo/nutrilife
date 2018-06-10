@@ -12,10 +12,10 @@
  *
  *= require_tree .
  *= require_self
-
+ *= require bootstrap
  *= require others/font-awesome.min.css
- *= require others/animate.css
- *= require others/meanmenu.min.css
  */
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
  
  

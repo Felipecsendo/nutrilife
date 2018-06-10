@@ -4,7 +4,7 @@ feature 'Visitor visit homepage' do
   scenario 'successfully' do
     visit root_path
 
-    expect(page).to have_css('h1', text: 'NutriLife')
+    expect(page).to have_css('a', text: 'NutriLife')
     expect(page).to have_css('p', text: 'Bem-vindo ao Mundo Saudável')
   end
   
@@ -18,18 +18,19 @@ feature 'Visitor visit homepage' do
     visit root_path
   
     # expectativas do usuário após a ação
-    expect(page).to have_css('h3', text: blog.title)
-    expect(page).to have_css('li', text: blog.body)
-    expect(page).to have_css('li', text: blog.created_at)
-    expect(page).to have_css('h3', text: blog2.title)
-    expect(page).to have_css('li', text: blog2.body)
-    expect(page).to have_css('li', text: blog2.created_at)
+    expect(page).to have_css('h4', text: blog.title)
+    expect(page).to have_css('p', text: blog.body[0..96])
+    expect(page).to have_css('a', text: blog.created_at.strftime("%B %d, %Y"))
+    expect(page).to have_css('h4', text: blog2.title)
+    expect(page).to have_css('p', text: blog2.body[0..96])
+    expect(page).to have_css('a', text: blog2.created_at.strftime("%B %d, %Y"))
   end
 
   scenario 'and see the categories' do
     #cria os dados necessários
     category1 = create(:category )
     category2 = create(:category )
+    category3 = create(:category )
     
   
     # simula a ação do usuário
