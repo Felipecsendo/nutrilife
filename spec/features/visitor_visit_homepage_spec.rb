@@ -39,7 +39,7 @@ feature 'Visitor visit homepage' do
     # expectativas do usuário após a ação
     expect(page).to have_css('a', text: category1.description)
     expect(page).to have_css('a', text: category2.description)
-    
-  
+    expect(page).to have_css('a', text: category3.description)
   end
+  
 end
