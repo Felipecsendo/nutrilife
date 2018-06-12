@@ -1,9 +1,7 @@
 class Admin < ApplicationRecord
   # Associations
   has_many :blogs
-  
-  # Carrierwave Uploader
-  mount_uploader :avatar, AvatarUploader
+  has_one :admin_profile
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

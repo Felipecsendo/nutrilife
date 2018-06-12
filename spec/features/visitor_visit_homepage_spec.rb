@@ -59,4 +59,21 @@ feature 'Visitor visit homepage' do
     expect(page).to have_css("img[src*='#{category3.avatar.file.identifier}']")
   end
   
+  scenario 'and see admin info' do
+  #cria os dados necessários
+    admin = create(:admin)
+    create(:category )
+    create( :blog )
+  
+    # simula a ação do usuário
+    visit root_path
+    
+    # expectativas do usuário após a ação
+    expect(page).to have_css('h6', text: 'Sobre')
+    expect(page).to have_css("img[src*='#{admin.avatar.file.identifier}']")
+    expect(page).to have_css('h4', text: admin.name)
+    expect(page).to have_css('p', text: admin.description)
+    
+  
+  end
 end

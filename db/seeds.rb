@@ -10,7 +10,12 @@ Admin.create!(email: 'admin@admin.com',
               name: Faker::Name.name,
               password: '123456',
               password_confirmation: '123456',
-              avatar: Rails.root.join('public/Nutritionist.jpg').open)
+              avatar: Rails.root.join('public',
+                                        'templates',
+                                        'yummy',
+                                        'img',
+                                        'blog-img',
+                                        "#{Random.rand(17..19)}.jpg"))
               
 3.times do |i|
   Category.create!(description: Faker::Commerce.department(2, true),
