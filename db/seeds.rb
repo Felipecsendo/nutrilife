@@ -12,10 +12,22 @@ Admin.create!(email: 'admin@admin.com',
               password_confirmation: '123456',
               avatar: Rails.root.join('public/Nutritionist.jpg').open)
               
+3.times do |i|
+  Category.create!(description: Faker::Commerce.department(2, true),
+                   avatar: Rails.root.join('public',
+                                           'templates',
+                                           'yummy',
+                                           'img',
+                                           'catagory-img',
+                                           "#{i+1}.jpg")
+                                           .open)
+end
+              
 10.times do
   Blog.create!(title: Faker::Dessert.variety,
                body: LeroleroGenerator.sentence(3),
                admin: Admin.first,
+               category: Category.all.sample,
                images: [Rails.root.join('public',
                                         'templates',
                                         'yummy',
@@ -24,8 +36,4 @@ Admin.create!(email: 'admin@admin.com',
                                         "#{Random.rand(1..16)}.jpg")
                                         .open]
               )
-end
-
-3.times do
-  Category.create!(description: Faker::Commerce.department(2, true))
 end

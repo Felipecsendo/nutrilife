@@ -3,6 +3,7 @@ require 'rails_helper'
 feature 'Visitor visit homepage' do
   scenario 'successfully' do
     create(:admin )
+    create(:category )
     create( :blog )
     
     visit root_path
@@ -14,6 +15,7 @@ feature 'Visitor visit homepage' do
   scenario 'and see the Blogs' do
     #cria os dados necessários
     create(:admin )
+    create(:category )
     blog = create( :blog )
     blog2 = create( :blog, images: [Rails.root.join('public', "Nutritionist2.jpg").open] )
   
@@ -37,10 +39,10 @@ feature 'Visitor visit homepage' do
   scenario 'and see the categories' do
     #cria os dados necessários
     create(:admin )
-    create( :blog )
     category1 = create(:category )
     category2 = create(:category )
     category3 = create(:category )
+    create( :blog )
     
   
     # simula a ação do usuário
@@ -48,8 +50,13 @@ feature 'Visitor visit homepage' do
     
     # expectativas do usuário após a ação
     expect(page).to have_css('a', text: category1.description)
+    expect(page).to have_css("img[src*='#{category1.avatar.file.identifier}']")
+    
     expect(page).to have_css('a', text: category2.description)
+    expect(page).to have_css("img[src*='#{category2.avatar.file.identifier}']")
+    
     expect(page).to have_css('a', text: category3.description)
+    expect(page).to have_css("img[src*='#{category3.avatar.file.identifier}']")
   end
   
 end

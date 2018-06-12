@@ -719,7 +719,7 @@ li {
 .list-blog.single-post .post-thumb,
 .list-blog.single-post .post-content {
     -ms-flex-preferred-size: 50%;
-    flex-basis: 10%;
+    flex-basis: 50%;
     margin-right: 15px;
 }
 

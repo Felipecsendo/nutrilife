@@ -27,6 +27,16 @@
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700|Quicksand:300,400,500,700|Shadows+Into+Light+Two');
 
+/* ***** Import CSS ***** */
+
+@import 'bootstrap/bootstrap.min.css';
+@import 'others/animate.css';
+@import 'others/magnific-popup.css';
+@import 'others/meanmenu.min.css';
+@import 'others/owl.carousel.min.css';
+@import 'others/font-awesome.min.css';
+@import 'others/pe-icon-7-stroke.css';
+
 /* --------------------
 :: 1.0 Base CSS
 -------------------- */
@@ -555,7 +565,7 @@ li {
     height: 100%;
     top: 0;
     right: 0;
-    cursor: url(templates/yummy/img/core-img/next.png), auto !important;
+    cursor: url(img/core-img/next.png), auto !important;
 }
 
 /* --------------------

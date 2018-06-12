@@ -1,11 +1,3 @@
-     <!-- Background Pattern Swither -->
-    <div id="pattern-switcher">
-        Bg Pattern
-    </div>
-    <div id="patter-close">
-        <i class="fa fa-times" aria-hidden="true"></i>
-    </div>
-
     <!-- ****** Top Header Area Start ****** -->
     <div class="top_header_area">
         <div class="container">
@@ -115,7 +107,7 @@
 
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single_catagory wow fadeInUp" data-wow-delay=".3s">
-                        <img src="templates/yummy/img/catagory-img/1.jpg" alt="">
+                        <%= image_tag(category.avatar.url) %>
                         <div class="catagory-title">
                           <%= link_to '#' do %>
                             <h5><%= category.description %></h5>
@@ -181,7 +173,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        
                         <% @blogs.each do |blog| %>
                           <!-- Single Post SMALL ONES NEWEST -->
                           <div class="col-12 col-md-6">
@@ -718,3 +710,5 @@
             </div>
         </div>
     </footer>
+    
+</body>
