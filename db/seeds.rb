@@ -6,10 +6,24 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Admin.create!(email: 'admin@admin.com', password: '123456', password_confirmation: '123456')
-
+Admin.create!(email: 'admin@admin.com',
+              name: Faker::Name.name,
+              password: '123456',
+              password_confirmation: '123456',
+              avatar: Rails.root.join('public/Nutritionist.jpg').open)
+              
 10.times do
-  Blog.create!(title: Faker::Dessert.variety, body: LeroleroGenerator.sentence(3), admin: Admin.first)
+  Blog.create!(title: Faker::Dessert.variety,
+               body: LeroleroGenerator.sentence(3),
+               admin: Admin.first,
+               images: [Rails.root.join('public',
+                                        'templates',
+                                        'yummy',
+                                        'img',
+                                        'blog-img',
+                                        "#{Random.rand(1..16)}.jpg")
+                                        .open]
+              )
 end
 
 3.times do

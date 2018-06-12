@@ -1,8 +1,3 @@
- <%= image_tag(@blogs.first.images[0].url) %>
-
-
-
- 
      <!-- Background Pattern Swither -->
     <div id="pattern-switcher">
         Bg Pattern
@@ -146,7 +141,8 @@
                             <div class="single-post wow fadeInUp" data-wow-delay=".2s">
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                                    <img src="templates/yummy/img/blog-img/1.jpg" alt="">
+                                    <!--img src="templates/yummy/img/blog-img/1.jpg" alt=""-->
+                                    <%= image_tag(@blogs.first.images[0].url) %>
                                 </div>
                                 <!-- Post Content -->
                                 <div class="post-content">
@@ -192,7 +188,7 @@
                               <div class="single-post wow fadeInUp" data-wow-delay=".4s">
                                   <!-- Post Thumb -->
                                   <div class="post-thumb">
-                                      <img src="templates/yummy/img/blog-img/2.jpg" alt="">
+                                      <%= image_tag(blog.images.first.url) %>
                                   </div>
                                   <!-- Post Content -->
                                   <div class="post-content">
@@ -200,7 +196,7 @@
                                           <div class="post-author-date-area d-flex">
                                               <!-- Post Author -->
                                               <div class="post-author">
-                                                  <a href="#">By Marian</a>
+                                                  <%= link_to "By #{blog.admin.name}", '#'  %>
                                               </div>
                                               <!-- Post Date -->
                                               <div class="post-date">
