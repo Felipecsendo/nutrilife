@@ -6,17 +6,27 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Admin.create!(email: 'admin@admin.com',
-              name: Faker::Name.name,
+
+puts 'Cadastrando ADMINISTRADOR...'
+admin = Admin.create!(email: 'admin@admin.com',
               password: '123456',
               password_confirmation: '123456',
-              avatar: Rails.root.join('public',
+              )
+puts 'Cadastrando PERFIL DE ADMINISTRADOR...'
+ AdminProfile.create!(name: Faker::Name.name,
+                      description: LeroleroGenerator.sentence(1),
+                      admin: admin,
+                      avatar: Rails.root.join('public',
                                         'templates',
                                         'yummy',
                                         'img',
                                         'blog-img',
-                                        "#{Random.rand(17..19)}.jpg"))
-              
+                                        "#{Random.rand(17..19)}.jpg")
+                                        .open,
+                      )
+puts 'ADMINISTRADOR Cadastrado com sucesso!'
+
+puts 'Cadastrando CATEGORIAS...'
 3.times do |i|
   Category.create!(description: Faker::Commerce.department(2, true),
                    avatar: Rails.root.join('public',
@@ -25,9 +35,12 @@ Admin.create!(email: 'admin@admin.com',
                                            'img',
                                            'catagory-img',
                                            "#{i+1}.jpg")
-                                           .open)
+                                           .open
+                  )
 end
-              
+puts 'CATEGORIAS Cadastradas com sucesso!'
+  
+puts 'Cadastrando BLOGS...'
 10.times do
   Blog.create!(title: Faker::Dessert.variety,
                body: LeroleroGenerator.sentence(3),
@@ -42,3 +55,4 @@ end
                                         .open]
               )
 end
+puts 'BLOGS Cadastrados com sucesso!'

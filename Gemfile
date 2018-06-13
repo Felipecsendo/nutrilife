@@ -43,6 +43,8 @@ gem 'font-awesome-sass'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+# Rails gem of the Bootstrap based admin theme SB Admin 2.
+gem 'bootstrap_sb_admin_base_v2'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

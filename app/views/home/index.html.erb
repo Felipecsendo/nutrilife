@@ -5,11 +5,11 @@
                 <div class="col-5 col-sm-6">
                     <!--  Top Social bar start -->
                     <div class="top_social_bar">
-                        <a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fab fa-skype" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fab fa-dribbble" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 <!--  Login Register Area -->
@@ -25,14 +25,14 @@
                         </div>
                         <!-- Search Button Area -->
                         <div class="search_button">
-                            <a class="searchBtn" href="#"><i class="fab fa-search" aria-hidden="true"></i></a>
+                            <a class="searchBtn" href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
                         </div>
                         <!-- Search Form -->
                         <div class="search-hidden-form">
                             <form action="#" method="get">
                                 <input type="search" name="search" id="search-anything" placeholder="Search Anything...">
                                 <input type="submit" value="" class="d-none">
-                                <span class="searchBtn"><i class="fab fa-times" aria-hidden="true"></i></span>
+                                <span class="searchBtn"><i class="fa fa-times" aria-hidden="true"></i></span>
                             </form>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
             <div class="row">
                 <div class="col-12">
                     <nav class="navbar navbar-expand-lg">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#yummyfood-nav" aria-controls="yummyfood-nav" aria-expanded="false" aria-label="Toggle navigation"><i class="fab fa-bars" aria-hidden="true"></i> Menu</button>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#yummyfood-nav" aria-controls="yummyfood-nav" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars" aria-hidden="true"></i> Menu</button>
                         <!-- Menu Area Start -->
                         <div class="collapse navbar-collapse justify-content-center" id="yummyfood-nav">
                             <ul class="navbar-nav" id="yummy-nav">
@@ -153,15 +153,15 @@
                                         <div class="post-comment-share-area d-flex">
                                             <!-- Post Favourite -->
                                             <div class="post-favourite">
-                                                <a href="#"><i class="far fa-heart" aria-hidden="true"></i> 10</a>
+                                                <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
                                             </div>
                                             <!-- Post Comments -->
                                             <div class="post-comments">
-                                                <a href="#"><i class="far fa-comment" aria-hidden="true"></i> 12</a>
+                                                <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
                                             </div>
                                             <!-- Post Share -->
                                             <div class="post-share">
-                                                <a href="#"><i class="fas fa-share-alt" aria-hidden="true"></i></a>
+                                                <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -188,7 +188,7 @@
                                           <div class="post-author-date-area d-flex">
                                               <!-- Post Author -->
                                               <div class="post-author">
-                                                  <%= link_to "By #{blog.admin.name}", '#'  %>
+                                                  <%= link_to "By #{blog.admin.admin_profile.name}", '#'  %>
                                               </div>
                                               <!-- Post Date -->
                                               <div class="post-date">
@@ -203,16 +203,16 @@
                                               </div>
                                               <!-- Post Comments -->
                                               <div class="post-comments">
-                                                  <a href="#"><i class="far fa-comment" aria-hidden="true"></i> 12</a>
+                                                  <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
                                               </div>
                                               <!-- Post Share -->
                                               <div class="post-share">
-                                                  <a href="#"><i class="fas fa-share-alt" aria-hidden="true"></i></a>
+                                                  <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
                                               </div>
                                           </div>
                                       </div>
                                       <a href="#">
-                                          <h4 class="post-headline"><%= blog.title %></h4>
+                                          <h3 class="post-headline"><%= blog.title %></h3>
                                       </a>
                                       <p><%= truncate(blog.body, length: 100) %></p>
                                   </div>
@@ -247,15 +247,15 @@
                                         <div class="post-comment-share-area d-flex">
                                             <!-- Post Favourite -->
                                             <div class="post-favourite">
-                                                <a href="#"><i class="far fa-heart" aria-hidden="true"></i> 10</a>
+                                                <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
                                             </div>
                                             <!-- Post Comments -->
                                             <div class="post-comments">
-                                                <a href="#"><i class="far fa-comment" aria-hidden="true"></i> 12</a>
+                                                <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
                                             </div>
                                             <!-- Post Share -->
                                             <div class="post-share">
-                                                <a href="#"><i class="fas fa-share-alt" aria-hidden="true"></i></a>
+                                                <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -292,15 +292,15 @@
                                         <div class="post-comment-share-area d-flex">
                                             <!-- Post Favourite -->
                                             <div class="post-favourite">
-                                                <a href="#"><i class="far fa-heart" aria-hidden="true"></i> 10</a>
+                                                <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
                                             </div>
                                             <!-- Post Comments -->
                                             <div class="post-comments">
-                                                <a href="#"><i class="far fa-comment" aria-hidden="true"></i> 12</a>
+                                                <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
                                             </div>
                                             <!-- Post Share -->
                                             <div class="post-share">
-                                                <a href="#"><i class="fas fa-share-alt" aria-hidden="true"></i></a>
+                                                <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -337,15 +337,15 @@
                                         <div class="post-comment-share-area d-flex">
                                             <!-- Post Favourite -->
                                             <div class="post-favourite">
-                                                <a href="#"><i class="far fa-heart" aria-hidden="true"></i> 10</a>
+                                                <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
                                             </div>
                                             <!-- Post Comments -->
                                             <div class="post-comments">
-                                                <a href="#"><i class="far fa-comment" aria-hidden="true"></i> 12</a>
+                                                <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
                                             </div>
                                             <!-- Post Share -->
                                             <div class="post-share">
-                                                <a href="#"><i class="fas fa-share-alt" aria-hidden="true"></i></a>
+                                                <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -382,15 +382,15 @@
                                         <div class="post-comment-share-area d-flex">
                                             <!-- Post Favourite -->
                                             <div class="post-favourite">
-                                                <a href="#"><i class="far fa-heart" aria-hidden="true"></i> 10</a>
+                                                <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
                                             </div>
                                             <!-- Post Comments -->
                                             <div class="post-comments">
-                                                <a href="#"><i class="far fa-comment" aria-hidden="true"></i> 12</a>
+                                                <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
                                             </div>
                                             <!-- Post Share -->
                                             <div class="post-share">
-                                                <a href="#"><i class="fas fa-share-alt" aria-hidden="true"></i></a>
+                                                <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -415,10 +415,10 @@
                                 <h6>Sobre</h6>
                             </div>
                             <div class="about-me-widget-thumb">
-                                <img src="templates/yummy/img/about-img/1.jpg" alt="">
+                                <%= image_tag(@admin.admin_profile.avatar.url) %>
                             </div>
-                            <h4 class="font-shadow-into-light"><%= @admin.name %></h4>
-                            <p> @admin.description %></p>
+                            <h4 class="font-shadow-into-light"><%= @admin.admin_profile.name %></h4>
+                            <p> <%= @admin.admin_profile.description %></p>
                         </div>
 
                         <!-- Single Widget Area -->
@@ -427,12 +427,12 @@
                                 <h6>Subscribe &amp; Follow</h6>
                             </div>
                             <div class="subscribe-link">
-                                <a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fab fa-google" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fab fa-linkedin-square" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fab fa-vimeo" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-google" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a>
                             </div>
                         </div>
 
@@ -518,7 +518,7 @@
                             <div class="newsletter-form">
                                 <form action="#" method="post">
                                     <input type="email" name="newsletter-email" id="email" placeholder="Your email">
-                                    <button type="submit"><i class="fab fa-paper-plane-o" aria-hidden="true"></i></button>
+                                    <button type="submit"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
                                 </form>
                             </div>
                         </div>
@@ -536,25 +536,25 @@
                 <div class="col-12">
                     <div class="footer-social-area d-flex">
                         <div class="single-icon">
-                            <a href="#"><i class="fab fa-facebook" aria-hidden="true"></i><span>facebook</span></a>
+                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i><span>facebook</span></a>
                         </div>
                         <div class="single-icon">
-                            <a href="#"><i class="fab fa-twitter" aria-hidden="true"></i><span>Twitter</span></a>
+                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twitter</span></a>
                         </div>
                         <div class="single-icon">
-                            <a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i><span>GOOGLE+</span></a>
+                            <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i><span>GOOGLE+</span></a>
                         </div>
                         <div class="single-icon">
-                            <a href="#"><i class="fab fa-linkedin-square" aria-hidden="true"></i><span>linkedin</span></a>
+                            <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i><span>linkedin</span></a>
                         </div>
                         <div class="single-icon">
-                            <a href="#"><i class="fab fa-instagram" aria-hidden="true"></i><span>Instagram</span></a>
+                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram</span></a>
                         </div>
                         <div class="single-icon">
-                            <a href="#"><i class="fab fa-vimeo" aria-hidden="true"></i><span>VIMEO</span></a>
+                            <a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i><span>VIMEO</span></a>
                         </div>
                         <div class="single-icon">
-                            <a href="#"><i class="fab fa-youtube-play" aria-hidden="true"></i><span>YOUTUBE</span></a>
+                            <a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i><span>YOUTUBE</span></a>
                         </div>
                     </div>
                 </div>
@@ -570,7 +570,7 @@
                 <div class="col-12">
                     <!-- Copywrite Text -->
                     <div class="copy_right_text text-center">
-                        <p>Copyright @2018 All rights reserved | This template is made with <i class="far fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                        <p>Copyright @2018 All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
                     </div>
                 </div>
             </div>

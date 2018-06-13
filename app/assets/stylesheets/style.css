@@ -34,7 +34,7 @@
 @import 'others/magnific-popup.css';
 @import 'others/meanmenu.min.css';
 @import 'others/owl.carousel.min.css';
-@import 'others/font-awesome.min.css';
+@import 'font-awesome';
 @import 'others/pe-icon-7-stroke.css';
 
 /* --------------------
@@ -678,6 +678,14 @@ li {
     margin-bottom: 30px;
 }
 
+.single-post h2 {
+    font-size: 32px;
+}
+
+.single-post h3 {
+    font-size: 24px;
+}
+
 .single-post h2,
 .single-post h4 {
     margin: 10px 0;
@@ -894,6 +902,10 @@ li {
 
 .single-widget-area {
     margin-bottom: 50px;
+}
+
+.single-widget-area h6 {
+    font-size: 16px;
 }
 
 .widget-title > h6 {

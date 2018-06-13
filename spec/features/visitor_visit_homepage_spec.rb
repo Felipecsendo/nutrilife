@@ -3,6 +3,7 @@ require 'rails_helper'
 feature 'Visitor visit homepage' do
   scenario 'successfully' do
     create(:admin )
+    create(:admin_profile)
     create(:category )
     create( :blog )
     
@@ -15,6 +16,7 @@ feature 'Visitor visit homepage' do
   scenario 'and see the Blogs' do
     #cria os dados necessários
     create(:admin )
+    create(:admin_profile)
     create(:category )
     blog = create( :blog )
     blog2 = create( :blog, images: [Rails.root.join('public', "Nutritionist2.jpg").open] )
@@ -24,13 +26,13 @@ feature 'Visitor visit homepage' do
   
     # expectativas do usuário após a ação
     expect(page).to have_css('h4', text: blog.title)
-    expect(page).to have_css('a', text: blog.admin.name)
+    expect(page).to have_css('a', text: blog.admin.admin_profile.name)
     expect(page).to have_css('p', text: blog.body[0..96])
     expect(page).to have_css('a', text: blog.created_at.strftime("%B %d, %Y"))
     expect(page).to have_css("img[src*='#{blog.images.first.file.identifier}']")
     
     expect(page).to have_css('h4', text: blog2.title)
-    expect(page).to have_css('a', text: blog.admin.name)
+    expect(page).to have_css('a', text: blog.admin.admin_profile.name)
     expect(page).to have_css('p', text: blog2.body[0..96])
     expect(page).to have_css('a', text: blog2.created_at.strftime("%B %d, %Y"))
     expect(page).to have_css("img[src*='#{blog2.images.first.file.identifier}']")
@@ -39,6 +41,7 @@ feature 'Visitor visit homepage' do
   scenario 'and see the categories' do
     #cria os dados necessários
     create(:admin )
+    create(:admin_profile)
     category1 = create(:category )
     category2 = create(:category )
     category3 = create(:category )
@@ -62,6 +65,7 @@ feature 'Visitor visit homepage' do
   scenario 'and see admin info' do
   #cria os dados necessários
     admin = create(:admin)
+    create(:admin_profile)
     create(:category )
     create( :blog )
   
@@ -70,9 +74,9 @@ feature 'Visitor visit homepage' do
     
     # expectativas do usuário após a ação
     expect(page).to have_css('h6', text: 'Sobre')
-    expect(page).to have_css("img[src*='#{admin.avatar.file.identifier}']")
-    expect(page).to have_css('h4', text: admin.name)
-    expect(page).to have_css('p', text: admin.description)
+    expect(page).to have_css("img[src*='#{admin.admin_profile.avatar.file.identifier}']")
+    expect(page).to have_css('h4', text: admin.admin_profile.name)
+    expect(page).to have_css('p', text: admin.admin_profile.description)
     
   
   end
