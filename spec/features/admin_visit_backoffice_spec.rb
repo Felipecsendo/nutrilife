@@ -6,7 +6,6 @@ feature 'Admin visit backoffice' do
     visit backoffice_blog_dashboard_index_path
     
     expect(page).to have_css('h3', text: 'Backoffice Blog Dashboard')
-    expect(page).to have_css('h3', text: 'SIDEBAR')
     
   end
 end

@@ -25,13 +25,13 @@ feature 'Visitor visit homepage' do
     visit root_path
   
     # expectativas do usuário após a ação
-    expect(page).to have_css('h4', text: blog.title)
+    expect(page).to have_css('h3', text: blog.title)
     expect(page).to have_css('a', text: blog.admin.admin_profile.name)
     expect(page).to have_css('p', text: blog.body[0..96])
     expect(page).to have_css('a', text: blog.created_at.strftime("%B %d, %Y"))
     expect(page).to have_css("img[src*='#{blog.images.first.file.identifier}']")
     
-    expect(page).to have_css('h4', text: blog2.title)
+    expect(page).to have_css('h3', text: blog2.title)
     expect(page).to have_css('a', text: blog.admin.admin_profile.name)
     expect(page).to have_css('p', text: blog2.body[0..96])
     expect(page).to have_css('a', text: blog2.created_at.strftime("%B %d, %Y"))
