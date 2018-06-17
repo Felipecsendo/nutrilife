@@ -9,6 +9,10 @@ AllCops:
   Include:
     - '**/Rakefile'
     - '**/config.ru'
+    - 'app/controllers/**'
+    - 'app/helpers/**'
+    - 'app/jobs/**'
+    - 'app/models/**'
   Exclude:
     - 'bin/**/*'
     - 'vendor/**/*'
