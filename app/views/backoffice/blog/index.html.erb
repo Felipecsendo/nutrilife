@@ -1,0 +1,9 @@
+
+<% @blogs.each do |blog| %>
+<h3> <%= blog.title %> </h3>
+<%= link_to blog.admin.admin_profile.name, '#'  %>
+<p> <%= truncate(blog.body, length: 100) %> </p>
+<%= link_to blog.created_at.strftime("%B %d, %Y"), '#'  %>
+<%= image_tag blog.images.first.url %>
+<% end %>
+
