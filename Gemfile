@@ -35,6 +35,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 # Translations for devise gem
 gem 'devise-i18n'
+# Forms made easy for Rails! It's tied to a simple DSL, with no opinion on markup.
+gem 'simple_form'
 
 gem 'rails-assets-bootstrap', source: 'https://rails-assets.org'
 # Font-Awesome SASS gem for use in Ruby on Rails projects 

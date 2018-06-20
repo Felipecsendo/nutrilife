@@ -1,0 +1,18 @@
+pt-BR:
+  date:
+    formats:
+      default: "%d-%m-%Y"
+      short: "%Y/%m/%d"
+  name: Nome
+  phone: Telefone
+  address: Endereço
+  cpf: CPF
+  cnpj: CNPJ
+  company_name: Empresa
+  contact: Contato
+  birth_date: Data de nascimento
+  login: Entrar
+  forget_password: Esqueceu a senha?
+  edit_access: Edição de acesso
+  waiting_confirmation: Aguardando confirmação do email
+  title: Título

@@ -65,20 +65,20 @@ feature 'Admin visit backoffice' do
     category = create(:category)
     title = Faker::Dessert.variety
     body = LeroleroGenerator.sentence(3)
-    image = [Rails.root.join('public',
+    image = Rails.root.join('public',
                                  'templates',
                                  'yummy',
                                  'img',
                                  'blog-img',
                                  "#{Random.rand(1..16)}.jpg")
-                                 .open]
+                                 
     visit backoffice_blog_dashboard_index_path
 
     click_link('Novo Post')
     
     fill_in 'Título', with: title
     fill_in 'Conteúdo', with: body
-    select(category.description, from: 'Select Box')
+    select(category.description, from: 'Categoria')
     attach_file image
     click_button('Criar')
                                  
@@ -88,7 +88,7 @@ feature 'Admin visit backoffice' do
     expect(page).to have_css('a', text: admin.admin_profile.name)
     expect(page).to have_css('p', text: body[0..96])
     expect(page).to have_css('a', text: Time.now.strftime("%B %d, %Y"))
-    expect(page).to have_css("img[src*='#{File.basename(image.first)}']")
+    expect(page).to have_css("img[src*='#{File.basename(image)}']")
 
   end
 
