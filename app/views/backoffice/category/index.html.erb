@@ -1,0 +1,6 @@
+<% @categories.each do |category| %>
+<%= image_tag category.avatar.url %>
+<h3> <%= category.description %> </h3>
+<%= link_to "Criado em: #{category.created_at.strftime("%B %d, %Y")}", '#'  %>
+<%= link_to "Posts nesta categoria: #{category.blogs.count}", '#' %>
+<% end %>

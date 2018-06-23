@@ -1,4 +1,6 @@
 class Backoffice::BlogController < BackofficeController
+  before_action :authenticate_admin!
+
   def index
     @blogs = Blog.all
   end
@@ -10,7 +12,7 @@ class Backoffice::BlogController < BackofficeController
   
   def create
     @blog = Blog.new(params_blog)
-    @blog.admin = Admin.first
+    @blog.admin = current_admin
     
     if @blog.save
       redirect_to backoffice_blog_index_path

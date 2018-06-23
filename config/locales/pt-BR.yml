@@ -18,6 +18,9 @@ pt-BR:
         category_id:
           one: Categoria
           other: Categorias
+      category:
+        description: Descrição
+        avatar: Capa
   date:
     abbr_day_names:
     - Dom
