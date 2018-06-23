@@ -5,10 +5,10 @@ feature 'Admin see all Categories' do
     admin = create(:admin)
     create(:admin_profile)
     category = create(:category)
-    category2 = create(:category, cover: [Rails
+    category2 = create(:category, avatar: Rails
                                           .root
                                           .join('public', 'Nutritionist2.jpg')
-                                          .open])
+                                          .open)
 
     create(:blog, category: category)
     create(:blog, category: category)
@@ -30,7 +30,7 @@ feature 'Admin see all Categories' do
                                                                   .blogs
                                                                   .count}")
 
-    expect(page).to have_css("img[src*='#{category.cover.file.identifier}']")
+    expect(page).to have_css("img[src*='#{category.avatar.file.identifier}']")
 
     expect(page).to have_css('h3', text: category2.description)
     expect(page).to have_css('a', text: "Criado em: #{category2
@@ -41,6 +41,6 @@ feature 'Admin see all Categories' do
                                                                  .blogs
                                                                  .count}")
 
-    expect(page).to have_css("img[src*='#{category2.cover.file.identifier}']")
+    expect(page).to have_css("img[src*='#{category2.avatar.file.identifier}']")
   end
 end
