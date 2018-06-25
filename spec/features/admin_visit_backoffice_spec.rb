@@ -4,11 +4,11 @@ feature 'Admin visit backoffice' do
   scenario 'without authentication' do
     visit backoffice_blog_dashboard_index_path
 
-    expect(current_path).to eq new_admin_session
+    expect(current_path).to eq new_admin_session_path
     expect(page)
-      .to have_content('Você não tem autorização para visitar esta página.')
-    expect(page).to have_content('Email')
-    expect(page).to have_content('Senha')
+      .to have_content('Para continuar, faça login ou contate o Administrador')
+    find_field(placeholder: 'E-mail').value
+    find_field(placeholder: 'Senha').value
   end
 
   scenario 'successfully' do

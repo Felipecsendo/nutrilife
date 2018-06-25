@@ -1,4 +1,5 @@
 pt-BR:
+  Password: Senha
   activerecord:
     errors:
       messages:
