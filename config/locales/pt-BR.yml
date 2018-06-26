@@ -1,5 +1,9 @@
 pt-BR:
   Password: Senha
+  Edit: Editar
+  Destroy: Excluir
+  created_at: Criado em
+  updated_at: Atualizado em
   activerecord:
     errors:
       messages:
@@ -19,6 +23,8 @@ pt-BR:
         category_id:
           one: Categoria
           other: Categorias
+        created_at: Criado em
+        updated_at: Atualizado em
       category:
         description: Descrição
         avatar: Capa

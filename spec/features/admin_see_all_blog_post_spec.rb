@@ -23,7 +23,12 @@ feature 'Admin see all Posts' do
     expect(page).to have_css('p', text: blog.body[0..96])
     expect(page).to have_css('a', text: blog.created_at.strftime('%B %d, %Y'))
     expect(page).to have_css("img[src*='#{blog.images.first.file.identifier}']")
-
+    expect(page).to have_css("img[src*='#{blog.images.first.file.identifier}']")
+    
+    expect(page).to have_link('Editar', href: edit_backoffice_blog_path(blog.id))
+    #find("a[href='#{edit_backoffice_blog_path(blog.id)}']")
+    expect(page).to have_link('Excluir', href: backoffice_blog_path(blog.id))
+    
     expect(page).to have_css('h3', text: blog2.title)
     expect(page).to have_css('a', text: blog.admin.admin_profile.name)
     expect(page).to have_css('p', text: blog2.body[0..96])
@@ -32,5 +37,9 @@ feature 'Admin see all Posts' do
                                           .images
                                           .first
                                           .file.identifier}']")
+                                          
+    expect(page).to have_link('Editar', href: edit_backoffice_blog_path(blog2.id))
+    #find("a[href='#{edit_backoffice_blog_path(blog2.id)}']")
+    expect(page).to have_link('Excluir', href: backoffice_blog_path(blog.id))
   end
 end

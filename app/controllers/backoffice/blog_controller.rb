@@ -1,5 +1,7 @@
 class Backoffice::BlogController < BackofficeController
   before_action :authenticate_admin!
+  before_action :set_blog, only:[:edit, :update]
+  before_action :set_categories, only:[:new, :edit]
 
   def index
     @blogs = Blog.all
@@ -7,7 +9,6 @@ class Backoffice::BlogController < BackofficeController
   
   def new
     @blog = Blog.new
-    @categories = Category.all
   end
   
   def create
@@ -21,8 +22,27 @@ class Backoffice::BlogController < BackofficeController
     end
   end
   
+  def edit
+  end
+  
+  def update
+    if @blog.update(params_blog)
+      redirect_to backoffice_blog_index_path, notice: 'Postagem editada com sucesso!'
+    else
+      render :edit
+    end
+    
+  end
   
   private
+  
+  def set_blog
+    @blog = Blog.find params[:id]
+  end
+  
+  def set_categories
+    @categories = Category.all
+  end
   
   def params_blog
     params.require(:blog).permit(:title, :body, :category_id, { images: [] })
