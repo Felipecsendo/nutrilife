@@ -31,6 +31,9 @@ class Backoffice::BlogController < BackofficeController
     else
       render :edit
     end
+  end
+  
+  def destroy
     
   end
   

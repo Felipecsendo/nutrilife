@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Admin see all Posts' do
+feature 'Admin edit Blog Post' do
   scenario 'successfully' do
     admin = create(:admin)
     create(:admin_profile)
@@ -37,7 +37,10 @@ feature 'Admin see all Posts' do
     expect(page).to have_css('a', text: "Criado em: #{blog.created_at.strftime('%B %d, %Y')}")
     expect(page).to have_css('a', text: "Atualizado em: #{blog.updated_at.strftime('%B %d, %Y')}")
     expect(page).to have_css("img[src*='#{File.basename(image)}']")
-    
- 
+  end
+  
+  scenario 'but leave some blank fields' do
+    pending("something else getting finished")
+    fail
   end
 end

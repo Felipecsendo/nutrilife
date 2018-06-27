@@ -8,6 +8,7 @@
   <% end %>
   <%= image_tag blog.images.first.url %>
   <%= link_to t('Edit'), edit_backoffice_blog_path(blog) %>
-  <%= link_to t('Destroy'), backoffice_blog_path(blog), method: :delete %>
+  <%= link_to t('Destroy'), backoffice_blog_path(blog), method: :delete,
+      data: {confirm: "Realmente deseja excluir este post? Essa ação não poderá ser desfeita!"} %>
 <% end %>
 
