@@ -39,8 +39,6 @@ gem 'devise-i18n'
 gem 'simple_form'
 
 gem 'rails-assets-bootstrap', source: 'https://rails-assets.org'
-# Wrappers for JavaScript alert(), confirm() and other flexible dialogs using Twitter's bootstrap framework 
-gem 'rails-assets-bootbox', source: 'https://rails-assets.org'
 # Font-Awesome SASS gem for use in Ruby on Rails projects 
 gem 'font-awesome-sass'
 
@@ -48,6 +46,8 @@ gem 'font-awesome-sass'
 gem 'jquery-rails'
 # Rails gem of the Bootstrap based admin theme SB Admin 2.
 gem 'bootstrap_sb_admin_base_v2'
+# Confirm dialogs using Twitter Bootstrap
+gem 'twitter-bootstrap-rails-confirm'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -61,7 +61,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara'
-  gem 'capybara-webkit'
+  gem 'capybara-webkit', git: 'https://github.com/thoughtbot/capybara-webkit.git', branch: 'master'
   gem 'factory_bot_rails'
   gem 'rspec-rails'
   gem 'rubocop', require: false

@@ -6,6 +6,15 @@ GIT
     faker (1.8.7)
       i18n (>= 0.7)
 
+GIT
+  remote: https://github.com/thoughtbot/capybara-webkit.git
+  revision: 8329b19e94ff08eeb517cac49bfffd2f667ea90d
+  branch: master
+  specs:
+    capybara-webkit (1.15.0)
+      capybara (>= 2.3, < 4.0)
+      json
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -69,9 +78,6 @@ GEM
       rack (>= 1.6.0)
       rack-test (>= 0.6.3)
       xpath (~> 3.1)
-    capybara-webkit (1.15.0)
-      capybara (>= 2.3, < 4.0)
-      json
     carrierwave (1.2.2)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
@@ -170,8 +176,6 @@ GEM
       bundler (>= 1.3.0)
       railties (= 5.2.0)
       sprockets-rails (>= 2.0.0)
-    rails-assets-bootbox (4.4.0)
-      rails-assets-bootstrap (>= 3.0.0)
     rails-assets-bootstrap (3.3.7)
       rails-assets-jquery (>= 1.9.1, < 4)
     rails-assets-jquery (3.3.1)
@@ -266,6 +270,7 @@ GEM
     turbolinks (5.1.1)
       turbolinks-source (~> 5.1)
     turbolinks-source (5.1.0)
+    twitter-bootstrap-rails-confirm (2.0.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uglifier (4.1.11)
@@ -291,7 +296,7 @@ DEPENDENCIES
   bootstrap_sb_admin_base_v2
   byebug
   capybara
-  capybara-webkit
+  capybara-webkit!
   carrierwave (~> 1.0)
   coffee-rails (~> 4.2)
   devise
@@ -307,7 +312,6 @@ DEPENDENCIES
   mini_magick
   puma (~> 3.7)
   rails (~> 5.2.0)
-  rails-assets-bootbox!
   rails-assets-bootstrap!
   rails-i18n
   rspec-rails
@@ -319,6 +323,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   sqlite3
   turbolinks (~> 5)
+  twitter-bootstrap-rails-confirm
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)

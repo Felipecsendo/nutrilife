@@ -6,16 +6,15 @@ feature 'Admin destroy Blog Posts', js: true do
     create(:admin_profile)
     category = create(:category)
     blog = create(:blog)
-    
+
     login_as(admin, scope: :admin)
-    
+
     visit backoffice_blog_index_path
-    
-    click_link('Excluir')
-    accept_confirm do
-     click_link('Sim')
+
+    accept_confirm :wait do
+      click_link('Excluir')
     end
-    
+
     expect(page).to have_css('p', text: 'Postagem excluída com sucesso!')
     expect(page).not_to have_css('h3', text: blog.title)
     expect(page).not_to have_css('a', text: blog.admin.admin_profile.name)
@@ -25,6 +24,8 @@ feature 'Admin destroy Blog Posts', js: true do
     expect(page).not_to have_css("img[src*='#{blog.images.first.file.identifier}']")
     
   end
+  
+  Capybara.use_default_driver 
   
   scenario 'but raise an error' do
     pending("something else getting finished")
