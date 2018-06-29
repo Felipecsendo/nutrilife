@@ -41,10 +41,16 @@
                              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                              <ul>
                                 <% flash.each do |key, value| %>
-                                  <% value.uniq.each do |message| %>
-                                  <li>
-                                    <%= message %>
-                                  </li>
+                                  <% unless value.is_a? String %>
+                                    <% value.uniq.each do |message| %>
+                                    <li>
+                                      <%= message %>
+                                    </li>
+                                    <% end %>
+                                  <% else %>
+                                    <li>
+                                      <%= value %>
+                                    </li>
                                   <% end %>
                                 <% end %>
                              </ul>

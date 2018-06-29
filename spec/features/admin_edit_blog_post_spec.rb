@@ -30,7 +30,7 @@ feature 'Admin edit Blog Post' do
     click_button('Editar')
     
     
-    expect(page).to have_css('p', text: 'Postagem editada com sucesso!')
+    expect(page).to have_css('li', text: 'Postagem editada com sucesso!')
     expect(page).to have_css('h3', text: title)
     expect(page).to have_css('a', text: admin.admin_profile.name)
     expect(page).to have_css('p', text: body[0..96])
