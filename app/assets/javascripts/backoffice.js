@@ -1,5 +1,4 @@
 //= require bootstrap_sb_admin_base_v2
-//= require bootbox
 //= require twitter/bootstrap/rails/confirm
 
 /* Sobrescreve  data-confirm do Rails 

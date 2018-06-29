@@ -2,6 +2,11 @@ pt-BR:
   Password: Senha
   Edit: Editar
   Destroy: Excluir
+  destroy_confirm:
+    body: Realmente deseja excluir este post? Essa ação não poderá ser desfeita!
+    title: 'Excluir o Post: %{blog_post_name}'
+    cancel: Cancelar
+    proceed: Confirmar
   created_at: Criado em
   updated_at: Atualizado em
   activerecord:

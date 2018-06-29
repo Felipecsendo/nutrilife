@@ -1,6 +1,6 @@
 class Backoffice::BlogController < BackofficeController
   before_action :authenticate_admin!
-  before_action :set_blog, only:[:edit, :update]
+  before_action :set_blog, only:[:edit, :update, :destroy]
   before_action :set_categories, only:[:new, :edit]
 
   def index
@@ -29,12 +29,24 @@ class Backoffice::BlogController < BackofficeController
     if @blog.update(params_blog)
       redirect_to backoffice_blog_index_path, notice: 'Postagem editada com sucesso!'
     else
-      render :edit
+      @blog.errors.full_messages.each do |message| 
+      if flash[:notice].nil?
+        flash[:notice] = [message]
+      else
+        flash[:notice] << message
+      end
+    end
+    render :edit
     end
   end
   
   def destroy
-    
+    if @blog.destroy
+      redirect_to backoffice_blog_index_path, notice: 'Postagem excluída com sucesso!'
+    else
+      render :index
+      flash[:notice] = 'Não foi possível realizar esta ação.'
+    end
   end
   
   private

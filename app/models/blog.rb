@@ -1,4 +1,7 @@
 class Blog < ApplicationRecord
+  # Validations
+  validates :title, :body, :images, :admin, :category_id, presence: true
+
   # Associations
   belongs_to :admin
   belongs_to :category
