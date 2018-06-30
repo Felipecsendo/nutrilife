@@ -14,8 +14,6 @@ feature 'Admin Edit category', js: true do
                             "#{Random.rand(1..5)}.jpg")
 
     category = create(:category, description: description)
-    
-    image2 = category.avatar
 
     login_as(admin, scope: :admin)
     visit backoffice_category_index_path
@@ -25,7 +23,6 @@ feature 'Admin Edit category', js: true do
     fill_in 'Descrição', with: description2
     attach_file image
     click_button('Editar')
-    click_button('Confirmar')
 
     expect(page).to have_current_path(backoffice_category_index_path)
 
@@ -37,7 +34,7 @@ feature 'Admin Edit category', js: true do
 
     expect(page).not_to have_css('h3', text: description)
 
-    expect(page).not_to have_css("img[src*='#{File.basename(image2)}']")
+    expect(page).not_to have_css("img[src*='#{File.basename(category.avatar.file.identifier)}']")
   end
   
   Capybara.use_default_driver 

@@ -1,6 +1,6 @@
 class Backoffice::CategoryController < BackofficeController
   before_action :authenticate_admin!
-  before_action :set_category, only: [:destroy]
+  before_action :set_category, only: [:destroy, :edit, :update]
   
   def index
     @categories = Category.all
@@ -16,6 +16,24 @@ class Backoffice::CategoryController < BackofficeController
       redirect_to backoffice_category_index_path
     else
       render :new
+    end
+  end
+  
+  def edit
+  end
+  
+  def update
+    if @category.update(category_params)
+      redirect_to backoffice_category_index_path, notice: 'Categoria editada com sucesso!'
+    else
+      @category.errors.full_messages.each do |message| 
+        if flash[:notice].nil?
+          flash[:notice] = [message]
+        else
+          flash[:notice] << message
+        end
+      end
+    render :edit
     end
   end
   

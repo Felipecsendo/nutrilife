@@ -21,7 +21,7 @@ feature 'Admin edit Blog Post' do
     
     visit backoffice_blog_index_path
     
-    click_link('Editar')
+    click_link('Editar Postagem')
     
     fill_in 'Título', with: title
     fill_in 'Conteúdo', with: body

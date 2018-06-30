@@ -7,7 +7,7 @@
     <%= link_to "#{t 'updated_at'}: #{blog.updated_at.strftime('%B %d, %Y')}", '#'  %>
   <% end %>
   <%= image_tag blog.images.first.url %>
-  <%= link_to t('Edit'), edit_backoffice_blog_path(blog) %>
+  <%= link_to t('blog_confirm.edit'), edit_backoffice_blog_path(blog) %>
   <%= destroy_link_to t('destroy_confirm.blog'), backoffice_blog_path(blog),
       options: {title: blog.title} %>
 <% end %>
