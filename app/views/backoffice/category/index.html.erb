@@ -3,4 +3,6 @@
 <h3> <%= category.description %> </h3>
 <%= link_to "Criado em: #{category.created_at.strftime("%B %d, %Y")}", '#'  %>
 <%= link_to "Posts nesta categoria: #{category.blogs.count}", '#' %>
+<%= destroy_link_to t('destroy_confirm.category'), backoffice_category_path(category),
+      options: {title: category.description} %>
 <% end %>

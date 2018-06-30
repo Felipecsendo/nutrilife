@@ -44,8 +44,7 @@ class Backoffice::BlogController < BackofficeController
     if @blog.destroy
       redirect_to backoffice_blog_index_path, notice: 'Postagem excluída com sucesso!'
     else
-      render :index
-      flash[:notice] = 'Não foi possível realizar esta ação.'
+      redirect_to backoffice_blog_index_path, notice: 'Não foi possível realizar esta ação.'
     end
   end
   

@@ -83,4 +83,9 @@ feature 'Visitor visit homepage' do
     expect(page).to have_css('h4', text: admin.admin_profile.name)
     expect(page).to have_css('p', text: admin.admin_profile.description)
   end
+  
+  scenario 'and see social networks' do 
+    pending('Something here about social network icons')
+    fail
+  end
 end

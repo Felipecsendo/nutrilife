@@ -12,7 +12,7 @@ feature 'Admin destroy Blog Posts', js: true do
     visit backoffice_blog_index_path
 
     
-     click_link('Excluir')
+     click_link('Excluir Postagem')
      click_link('Confirmar')
      
 

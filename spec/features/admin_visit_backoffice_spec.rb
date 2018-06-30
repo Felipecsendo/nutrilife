@@ -14,11 +14,15 @@ feature 'Admin visit backoffice' do
   scenario 'successfully' do
     admin = create(:admin)
     create(:admin_profile)
-    login_as(admin, scope: :admin)
 
     visit backoffice_blog_dashboard_index_path
+    
+    fill_in 'E-mail', with: admin.email
+    fill_in 'Senha', with: '123456'
+    click_button 'Log in'
 
     expect(page).to have_css('h3', text: 'Backoffice Blog Dashboard')
+    expect(page).to have_css('li', text: "Seja Bem-vindo(a), #{admin.admin_profile.name}")
     expect(page).to have_css('li', text: "Olá, #{admin.admin_profile.name}")
     expect(page).to have_css('div.navbar-header a.navbar-brand',
                              text: 'Administração Nutrilife')
