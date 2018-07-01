@@ -22,7 +22,6 @@ feature 'Admin visit backoffice' do
     click_button 'Log in'
 
     expect(page).to have_css('h3', text: 'Backoffice Blog Dashboard')
-    expect(page).to have_css('li', text: "Seja Bem-vindo(a), #{admin.admin_profile.name}")
     expect(page).to have_css('li', text: "Olá, #{admin.admin_profile.name}")
     expect(page).to have_css('div.navbar-header a.navbar-brand',
                              text: 'Administração Nutrilife')
