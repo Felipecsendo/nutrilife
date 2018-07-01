@@ -85,7 +85,20 @@ feature 'Visitor visit homepage' do
   end
   
   scenario 'and see social networks' do 
-    pending('Something here about social network icons')
-    fail
+    create(:admin)
+    create(:admin_profile)
+    create(:category)
+    create(:blog)
+
+    visit root_path
+
+    expect(page).to have_css('a i.fa.fa-facebook')
+    page.find(:css, 'a[href="www.facebook.com"]')
+    
+    expect(page).to have_css('a i.fa.fa-instagram')
+    page.find(:css, 'a[href="www.instagram.com"]')
+    
+    expect(page).to have_css('a i.fa.fa-youtube-play')
+    page.find(:css, 'a[href="www.youtube.com"]')
   end
 end
