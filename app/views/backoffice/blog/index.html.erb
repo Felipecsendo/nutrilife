@@ -8,7 +8,7 @@
   <% end %>
   <%= image_tag blog.images.first.url %>
   <%= link_to t('blog_confirm.edit'), edit_backoffice_blog_path(blog) %>
-  <%= destroy_link_to t('destroy_confirm.blog'), backoffice_blog_path(blog),
+  <%= destroy_blog_link_to t('destroy_confirm.blog'), backoffice_blog_path(blog),
       options: {title: blog.title} %>
 <% end %>
 

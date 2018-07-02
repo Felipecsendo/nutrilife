@@ -1,6 +1,6 @@
-module Backoffice::BlogsHelper
+module Backoffice::CategoriesHelper
   
-  def destroy_blog_link_to(text, path, options)
+  def destroy_category_link_to(text, path, options)
     options = options[:options]
     link_to t(text), path,
       method: :delete,
@@ -12,7 +12,7 @@ module Backoffice::BlogsHelper
         'confirm-cancel-class' => t('btn-default'),
         'confirm-proceed' => t('destroy_confirm.proceed'),
         'confirm-proceed-class' => 'btn-danger',
-        'confirm-title': t('destroy_confirm.blog_title', blog_post_name: options[:title]),
+        'confirm-title': t('destroy_confirm.category_title', category_description: options[:title])
       }
       
   end

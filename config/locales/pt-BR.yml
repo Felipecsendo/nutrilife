@@ -3,7 +3,8 @@ pt-BR:
   edit: Editar
   destroy_confirm:
     body: Realmente deseja excluir? Essa ação não poderá ser desfeita!
-    title: 'Excluir o Post: %{blog_post_name}'
+    blog_title: 'Excluir o Post: %{blog_post_name}'
+    category_title: 'Excluir a Categoria: %{category_description}'
     cancel: Cancelar
     proceed: Confirmar
     category: Excluir Categoria

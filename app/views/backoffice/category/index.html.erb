@@ -5,6 +5,6 @@
 <%= link_to "Editado em: #{category.updated_at.strftime('%B %d, %Y')}", '#'  %>
 <%= link_to "Posts nesta categoria: #{category.blogs.count}", '#' %>
 <%= link_to t('category_confirm.edit'), edit_backoffice_category_path(category) %>
-<%= destroy_link_to t('destroy_confirm.category'), backoffice_category_path(category),
+<%= destroy_category_link_to t('destroy_confirm.category'), backoffice_category_path(category),
       options: {title: category.description} %>
 <% end %>
