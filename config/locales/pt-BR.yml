@@ -1,7 +1,12 @@
 pt-BR:
-  Password: Senha
+  password: Senha
   edit: Editar
   create: Criar
+  created_at: Criado em
+  updated_at: Atualizado em
+  posts_number: Posts nesta categoria
+  about: Sobre
+  follow: Siga
   destroy_confirm:
     body: Realmente deseja excluir? Essa ação não poderá ser desfeita!
     blog_title: 'Excluir o Post: %{blog_post_name}'
@@ -12,8 +17,6 @@ pt-BR:
     blog: Excluir Postagem
   category_confirm:
     edit: Editar Categoria
-  created_at: Criado em
-  updated_at: Atualizado em
   blog_confirm:
     edit: Editar Postagem
   activerecord:
