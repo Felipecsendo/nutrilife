@@ -26,14 +26,8 @@ class Backoffice::CategoryController < BackofficeController
     if @category.update(category_params)
       redirect_to backoffice_category_index_path, notice: 'Categoria editada com sucesso!'
     else
-      @category.errors.full_messages.each do |message| 
-        if flash[:notice].nil?
-          flash[:notice] = [message]
-        else
-          flash[:notice] << message
-        end
-      end
-    render :edit
+      helpers.message_notices(@category)
+      render :edit
     end
   end
   

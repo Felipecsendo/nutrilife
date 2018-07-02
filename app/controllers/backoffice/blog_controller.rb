@@ -1,4 +1,5 @@
 class Backoffice::BlogController < BackofficeController
+
   before_action :authenticate_admin!
   before_action :set_blog, only:[:edit, :update, :destroy]
   before_action :set_categories, only:[:new, :edit]
@@ -29,14 +30,8 @@ class Backoffice::BlogController < BackofficeController
     if @blog.update(params_blog)
       redirect_to backoffice_blog_index_path, notice: 'Postagem editada com sucesso!'
     else
-      @blog.errors.full_messages.each do |message| 
-      if flash[:notice].nil?
-        flash[:notice] = [message]
-      else
-        flash[:notice] << message
-      end
-    end
-    render :edit
+      helpers.message_notices(@blog)
+      render :edit
     end
   end
   

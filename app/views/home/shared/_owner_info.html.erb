@@ -1,0 +1,11 @@
+<!-- Single Widget Area -->
+<div class="single-widget-area about-me-widget text-center">
+    <div class="widget-title">
+        <h6>Sobre</h6>
+    </div>
+    <div class="about-me-widget-thumb">
+        <%= image_tag(@admin.admin_profile.avatar.url) %>
+    </div>
+    <h4 class="font-shadow-into-light"><%= @admin.admin_profile.name %></h4>
+    <p> <%= @admin.admin_profile.description %></p>
+</div>

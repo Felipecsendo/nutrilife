@@ -1,0 +1,21 @@
+<!-- ****** Categories Area Start ****** -->
+<section class="categories_area clearfix" id="about">
+    <div class="container">
+        <div class="row">
+          <% @categories.each do |category| %>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="single_catagory wow fadeInUp" data-wow-delay=".3s">
+                    <%= image_tag(category.avatar.url) %>
+                    <div class="catagory-title">
+                      <%= link_to '#' do %>
+                        <h5><%= category.description %></h5>
+                      <% end %>
+                    </div>
+                </div>
+            </div>
+           <% end %> 
+        </div>
+    </div>
+</section>
+<!-- ****** Categories Area End ****** -->
