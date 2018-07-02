@@ -1,0 +1,25 @@
+<%= form_for [:backoffice, @blog], url: {action: action} do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  
+  <div>
+    <%= f.label :body %>
+    <%= f.text_area :body, as: :text %>
+  </div>
+  
+  <div>
+    <%= f.label :category_id %>
+    <%= f.collection_select :category_id, Category.all, :id, :description, {} %>
+  </div>
+  
+  <div>
+    <%= f.label :images %>
+    <%= f.file_field :images, multiple: true %>
+  </div>
+  
+  <div>
+    <%= f.submit t(submit) %>
+  </div>
+<% end %>

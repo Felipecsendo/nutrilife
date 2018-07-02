@@ -1,6 +1,7 @@
 pt-BR:
   Password: Senha
   edit: Editar
+  create: Criar
   destroy_confirm:
     body: Realmente deseja excluir? Essa ação não poderá ser desfeita!
     blog_title: 'Excluir o Post: %{blog_post_name}'

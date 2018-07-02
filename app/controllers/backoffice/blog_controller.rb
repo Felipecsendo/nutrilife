@@ -1,8 +1,8 @@
 class Backoffice::BlogController < BackofficeController
-
   before_action :authenticate_admin!
-  before_action :set_blog, only:[:edit, :update, :destroy]
   before_action :set_categories, only:[:new, :edit]
+  before_action :set_blog, only:[:edit, :update, :destroy]
+  
 
   def index
     @blogs = Blog.all

@@ -1,4 +1,5 @@
 class Blog < ApplicationRecord
+  
   # Validations
   validates :title, :body, :images, :admin, :category_id, presence: true
 
@@ -11,4 +12,3 @@ class Blog < ApplicationRecord
   serialize :images, JSON # If you use SQLite, add this line.
 end
 
-# a.image = Rails.root.join('public/Nutritionist.jpg').open

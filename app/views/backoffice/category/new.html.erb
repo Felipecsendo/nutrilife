@@ -1,5 +1,1 @@
-<%= simple_form_for [:backoffice, @category], url: {action: "create"} do |f| %>
-<%= f.input :description %>
-<%= f.input :avatar, as: :file %>
-<%= f.button :submit, 'Criar' %>
-<% end %>
+<%= render partial: 'backoffice/category/form', locals: { action: 'create', submit: 'create' } %>

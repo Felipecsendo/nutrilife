@@ -1,0 +1,15 @@
+<%= form_for [:backoffice, @category], url: {action: action} do |f| %>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+  
+  <div>
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar %>
+  </div>
+  
+  <div>
+    <%= f.submit t(submit) %>
+  </div>
+<% end %>
