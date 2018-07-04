@@ -28,7 +28,7 @@ feature 'Admin Edit category', js: true do
 
     expect(page).to have_css('h3', text: description2)
     expect(page).to have_css('a',
-                             text: "Editado em: #{category.updated_at
+                             text: "Atualizado em: #{category.updated_at
                                                 .strftime('%B %d, %Y')}")
     expect(page).to have_css("img[src*='#{File.basename(image)}']")
 
