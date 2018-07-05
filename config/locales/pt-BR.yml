@@ -8,9 +8,18 @@ pt-BR:
   about: Sobre
   follow: Siga
   administrators: Administradores
+  administrator: Administrador
+  new_administrator: Novo Administrador
+  see_administrators: Visualizar Administradores
   name: Nome
   email: E-mail
   authorization: Autorização
+  category: Categoria
+  new_category: Nova Categoria
+  see_categories: Visualizar Categorias
+  full_access: Acesso Completo
+  restricted_access: Acesso Restrito
+  
   destroy_confirm:
     body: Realmente deseja excluir? Essa ação não poderá ser desfeita!
     blog_title: 'Excluir o Post: %{blog_post_name}'

@@ -37,11 +37,12 @@ gem 'devise'
 gem 'devise-i18n'
 # Forms made easy for Rails! It's tied to a simple DSL, with no opinion on markup.
 gem 'simple_form'
-
-gem 'rails-assets-bootstrap', source: 'https://rails-assets.org'
+# Bootstrap
+gem 'rails-assets-bootstrap', '3.3.7', source: 'https://rails-assets.org'
 # Font-Awesome SASS gem for use in Ruby on Rails projects 
 gem 'font-awesome-sass'
-
+# Minimal authorization through OO design and pure Ruby classes 
+gem 'pundit'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Rails gem of the Bootstrap based admin theme SB Admin 2.

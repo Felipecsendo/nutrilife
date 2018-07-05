@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-feature 'Main admin edit other admin', js: true do
-  scenario 'successfully', driver: :webkit do
+feature 'Main admin destroy other admin' do
+  scenario 'successfully' do
     admin = create(:admin)
     create(:admin_profile)
     
@@ -11,7 +11,7 @@ feature 'Main admin edit other admin', js: true do
     login_as(admin, scope: :admin)
     visit backoffice_admin_index_path
     
-    expect(page).to have_css('btn.btn-warning.btn-circle', count: Admin.all.count)
+    expect(page).to have_css('btn.btn-danger.btn-circle', count: Admin.all.count)
     
     pending("something else getting finished")
     fail

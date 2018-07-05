@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :blog_dashboard, only:[:index]
     resources :blog, only:[:index, :new, :create, :edit, :update, :destroy]
     resources :category, only:[:index, :new, :create, :edit, :update, :destroy]
+    resources :admin, only:[:index]
   end
   
   

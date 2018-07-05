@@ -7,12 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-puts 'Cadastrando ADMINISTRADOR...'
+puts 'Cadastrando ADMINISTRADOR Principal...'
 admin = Admin.create!(email: 'admin@admin.com',
               password: '123456',
               password_confirmation: '123456',
+              role: 0
               )
-puts 'Cadastrando PERFIL DE ADMINISTRADOR...'
+puts 'Cadastrando PERFIL DE ADMINISTRADOR Principal...'
  AdminProfile.create!(name: Faker::Name.name,
                       description: LeroleroGenerator.sentence(1),
                       admin: admin,
@@ -25,6 +26,29 @@ puts 'Cadastrando PERFIL DE ADMINISTRADOR...'
                                         .open,
                       )
 puts 'ADMINISTRADOR Cadastrado com sucesso!'
+
+puts 'Cadastrando OUTROS ADMINISTRADORES...'
+10.times do
+  
+  admin = Admin.create!(email: Faker::Internet.email,
+                password: '123456',
+                password_confirmation: '123456',
+                role: 1
+                )
+  puts 'Cadastrando PERFIL DE OUTROS ADMINISTRADORES...'
+   AdminProfile.create!(name: Faker::Name.name,
+                        description: LeroleroGenerator.sentence(1),
+                        admin: admin,
+                        avatar: Rails.root.join('public',
+                                          'templates',
+                                          'yummy',
+                                          'img',
+                                          'blog-img',
+                                          "#{Random.rand(17..19)}.jpg")
+                                          .open,
+                        )
+end
+puts 'OUTROS ADMINISTRADORES Cadastrados com sucesso!'
 
 puts 'Cadastrando CATEGORIAS...'
 3.times do |i|

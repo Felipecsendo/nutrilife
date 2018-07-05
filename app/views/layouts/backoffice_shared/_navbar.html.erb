@@ -85,7 +85,10 @@
                 <!-- /.dropdown -->
             </ul>
             <!-- /.navbar-top-links -->
-
+            
+            
+            <!-- navbar-side-links -->
+            
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav nav-primary-level" id="side-menu">
@@ -107,13 +110,26 @@
                         </li>
                         
                         <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Categoria <span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> <%= t('category') %> <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <%= link_to 'Nova Categoria', new_backoffice_category_path %>
+                                    <%= link_to t('new_category'), new_backoffice_category_path %>
                                 </li>
                                 <li>
-                                    <%= link_to 'Visualizar Categorias', backoffice_category_index_path %>
+                                    <%= link_to t('see_categories'), backoffice_category_index_path %>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        
+                        <li>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> <%= t('administrators') %> <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <%= link_to t('new_administrador'), new_admin_registration_path %>
+                                </li>
+                                <li>
+                                    <%= link_to t('see_administrators'), backoffice_admin_index_path %>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
