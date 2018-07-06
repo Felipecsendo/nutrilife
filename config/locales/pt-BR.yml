@@ -19,7 +19,10 @@ pt-BR:
   see_categories: Visualizar Categorias
   full_access: Acesso Completo
   restricted_access: Acesso Restrito
+  password_confirmation: Confirmação de Senha
   
+  messages:
+    admin_succesfully_created: 'Administrador %{admin_name} criado com sucesso!' 
   destroy_confirm:
     body: Realmente deseja excluir? Essa ação não poderá ser desfeita!
     blog_title: 'Excluir o Post: %{blog_post_name}'
@@ -56,6 +59,14 @@ pt-BR:
       category:
         description: Descrição
         avatar: Capa
+      admin_profile:
+        name: Nome
+        description: Descrição
+        avatar: Foto
+      admin:
+        email: E-mail
+        password: Senha
+        password_confirmation: Confirmação de Senha
   date:
     abbr_day_names:
     - Dom

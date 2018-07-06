@@ -123,16 +123,10 @@
                         </li>
                         
                         <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> <%= t('administrators') %> <span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <%= link_to t('new_administrador'), new_admin_registration_path %>
-                                </li>
-                                <li>
-                                    <%= link_to t('see_administrators'), backoffice_admin_index_path %>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            <%= link_to backoffice_admin_index_path do %>
+                                <i class="fa fa-sitemap fa-fw"></i>
+                                <%= t('administrators') %>
+                            <% end %>
                         </li>
                     </ul>
                 </div>

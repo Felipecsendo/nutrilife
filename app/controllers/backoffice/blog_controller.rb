@@ -13,7 +13,7 @@ class Backoffice::BlogController < BackofficeController
   end
   
   def create
-    @blog = Blog.new(params_blog)
+    @blog = Blog.new(blog_params)
     @blog.admin = current_admin
     
     if @blog.save
@@ -27,7 +27,7 @@ class Backoffice::BlogController < BackofficeController
   end
   
   def update
-    if @blog.update(params_blog)
+    if @blog.update(blog_params)
       redirect_to backoffice_blog_index_path, notice: 'Postagem editada com sucesso!'
     else
       helpers.message_notices(@blog)
@@ -53,7 +53,7 @@ class Backoffice::BlogController < BackofficeController
     @categories = Category.all
   end
   
-  def params_blog
+  def blog_params
     params.require(:blog).permit(:title, :body, :category_id, { images: [] })
   end
 

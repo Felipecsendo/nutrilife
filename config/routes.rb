@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :admins
+  devise_for :admins, :skip => [:registrations]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
   root to: 'home#index'
@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :blog_dashboard, only:[:index]
     resources :blog, only:[:index, :new, :create, :edit, :update, :destroy]
     resources :category, only:[:index, :new, :create, :edit, :update, :destroy]
-    resources :admin, only:[:index]
+    resources :admin, only:[:index, :new, :create]
   end
   
   
