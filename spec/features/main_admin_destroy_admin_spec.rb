@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-feature 'Main admin destroy other admin' do
-  scenario 'successfully' do
+feature 'Main admin destroy other admin', js: true do
+  scenario 'successfully', driver: :webkit do
     admin = create(:admin)
     create(:admin_profile)
     

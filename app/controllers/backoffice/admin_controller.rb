@@ -26,7 +26,14 @@ class Backoffice::AdminController < BackofficeController
   end
   
   def update
-    
+    if @admin.update(admin_params)
+      redirect_to backoffice_admin_index_path,
+                  notice: t('messages.admin_succesfully_edited',
+                  admin_name: @admin.admin_profile.name)
+    else
+      helpers.message_notices(@admin)
+      render :edit
+    end
   end
   
   private

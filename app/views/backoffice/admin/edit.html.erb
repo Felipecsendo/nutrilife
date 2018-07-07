@@ -19,23 +19,23 @@
   
   <div>
     <%= f.label :password %>
-    <%= f.text_field :password %>
+    <%= f.password_field :password %>
   </div>
   
   <div>
     <%= f.label :password_confirmation %>
-    <%= f.text_field :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
   </div>
   
   <%= f.fields_for :admin_profile do |profile| %>
     <div>
       <%= profile.label :avatar %>
-      <%= profile.file_field :avatar %>
+      <%= profile.file_field :avatar, class: 'btn' %>
     </div>
   <% end %>
   
   <div>
-    <%= f.submit t('edit') %>
+    <%= edit_admin_submit f, t('edit'), options:{title: @admin.admin_profile.name} %>
   </div>
   
 <% end %>

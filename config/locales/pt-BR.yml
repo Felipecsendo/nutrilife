@@ -25,6 +25,7 @@ pt-BR:
     admin_succesfully_created: 'Administrador %{admin_name} criado com sucesso!'
     post_succesfully_created: 'Postagem %{post_title} criada com sucesso!'
     category_succesfully_created: 'Categoria %{category_description} criada com sucesso!'
+    admin_succesfully_edited: 'Administrador %{admin_name} editado com sucesso!'
   confirmations:
     cancel: Cancelar
     proceed: Confirmar

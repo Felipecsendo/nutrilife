@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-feature 'Main admin edit other admin' do
-  scenario 'successfully' do
+feature 'Main admin edit other admin', js: true do
+  scenario 'successfully', driver: :webkit do
    admin = create(:admin, role: 0)
    create(:admin_profile)
    admin_other = create(:admin, role: 1)
@@ -29,7 +29,7 @@ feature 'Main admin edit other admin' do
     fill_in t('password_confirmation'), with: password
     attach_file image
     click_button t('edit')
-    click_link t('confirm')
+    click_link t('confirmations.proceed')
     
     expect(page).to have_css('li', text: t('messages.admin_succesfully_edited',
                                             admin_name: name))
