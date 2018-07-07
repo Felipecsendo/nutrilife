@@ -17,6 +17,7 @@
                         <th><%= t('name') %></th>
                         <th><%= t('email') %></th>
                         <th><%= t('authorization') %></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,6 +27,11 @@
                         <td><%= admin.admin_profile.name %></td>
                         <td><%= admin.email %></td>
                         <td><%= t(admin.role) %></td>
+                        <td>
+                          <%= link_to edit_backoffice_admin_path(admin), class: 'btn btn-warning btn-circle pull-left' do %>
+                              <i class='fa fa-edit'></i>
+                          <% end %>
+                        </td>
                     </tr>
                   <% end %>
                 </tbody>

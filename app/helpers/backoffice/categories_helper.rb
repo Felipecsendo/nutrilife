@@ -6,13 +6,13 @@ module Backoffice::CategoriesHelper
       method: :delete,
       :class => 'btn',
       data:{
-        confirm: t('destroy_confirm.body'),
+        confirm: t('confirmations.destroy.body'),
         'confirm-fade' => true,
-        'confirm-cancel' => t('destroy_confirm.cancel'),
+        'confirm-cancel' => t('confirmations.cancel'),
         'confirm-cancel-class' => t('btn-default'),
-        'confirm-proceed' => t('destroy_confirm.proceed'),
+        'confirm-proceed' => t('confirmations.proceed'),
         'confirm-proceed-class' => 'btn-danger',
-        'confirm-title': t('destroy_confirm.category_title', category_description: options[:title])
+        'confirm-title': t('confirmations.destroy.category_title', category_description: options[:title])
       }
       
   end

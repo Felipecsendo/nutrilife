@@ -12,8 +12,8 @@ feature 'Admin destroy Post Posts', js: true do
     visit backoffice_post_index_path
 
     
-     click_link('Excluir Postagem')
-     click_link('Confirmar')
+     click_link t('confirmations.destroy.post')
+     click_link t('confirmations.proceed')
      
 
     expect(page).to have_css('li', text: 'Postagem excluída com sucesso!')

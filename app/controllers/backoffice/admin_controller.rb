@@ -1,4 +1,5 @@
 class Backoffice::AdminController < BackofficeController
+  before_action :set_admin, only: [:edit, :update]
   
   def index
     @admins = Admin.all
@@ -21,6 +22,12 @@ class Backoffice::AdminController < BackofficeController
     end
   end
   
+  def edit
+  end
+  
+  def update
+    
+  end
   
   private
   
@@ -29,5 +36,9 @@ class Backoffice::AdminController < BackofficeController
                                   admin_profile_attributes:[:name,
                                                             :description,
                                                             :avatar])
+  end
+  
+  def set_admin
+    @admin = Admin.find(params[:id])
   end
 end

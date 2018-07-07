@@ -1,0 +1,41 @@
+<%= form_for [:backoffice, @admin], url: {action: 'update'} do |f| %>
+
+  <%= f.fields_for :admin_profile do |profile| %>
+    <div>
+      <%= profile.label :name %>
+      <%= profile.text_field :name %>
+    </div>
+    
+    <div>
+      <%= profile.label :description %>
+      <%= profile.text_field :description %>
+    </div>
+  <% end %>
+  
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  
+  <div>
+    <%= f.label :password %>
+    <%= f.text_field :password %>
+  </div>
+  
+  <div>
+    <%= f.label :password_confirmation %>
+    <%= f.text_field :password_confirmation %>
+  </div>
+  
+  <%= f.fields_for :admin_profile do |profile| %>
+    <div>
+      <%= profile.label :avatar %>
+      <%= profile.file_field :avatar %>
+    </div>
+  <% end %>
+  
+  <div>
+    <%= f.submit t('edit') %>
+  </div>
+  
+<% end %>

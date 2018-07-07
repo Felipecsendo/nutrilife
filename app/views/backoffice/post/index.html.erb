@@ -7,8 +7,8 @@
     <%= link_to "#{t 'updated_at'}: #{post.updated_at.strftime('%B %d, %Y')}", '#'  %>
   <% end %>
   <%= image_tag post.images.first.url %>
-  <%= link_to t('post_confirm.edit'), edit_backoffice_post_path(post) %>
-  <%= destroy_post_link_to t('destroy_confirm.post'), backoffice_post_path(post),
+  <%= link_to t('confirmations.edit.post'), edit_backoffice_post_path(post) %>
+  <%= destroy_post_link_to t('confirmations.destroy.post'), backoffice_post_path(post),
       options: {title: post.title} %>
 <% end %>
 

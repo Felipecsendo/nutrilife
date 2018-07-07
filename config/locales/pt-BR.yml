@@ -22,19 +22,29 @@ pt-BR:
   password_confirmation: Confirmação de Senha
   
   messages:
-    admin_succesfully_created: 'Administrador %{admin_name} criado com sucesso!' 
-  destroy_confirm:
-    body: Realmente deseja excluir? Essa ação não poderá ser desfeita!
-    post_title: 'Excluir o Post: %{post_name}'
-    category_title: 'Excluir a Categoria: %{category_description}'
+    admin_succesfully_created: 'Administrador %{admin_name} criado com sucesso!'
+    post_succesfully_created: 'Postagem %{post_title} criada com sucesso!'
+    category_succesfully_created: 'Categoria %{category_description} criada com sucesso!'
+  confirmations:
     cancel: Cancelar
     proceed: Confirmar
-    category: Excluir Categoria
-    post: Excluir Postagem
-  category_confirm:
-    edit: Editar Categoria
-  post_confirm:
-    edit: Editar Postagem
+    destroy:
+      body: Realmente deseja excluir? Essa ação não poderá ser desfeita!
+      post_title: 'Excluir o Post: %{post_name}'
+      category_title: 'Excluir a Categoria: %{category_description}'
+      admin_title: 'Excluir o Administrador: %{admin_name}'
+      category: Excluir Categoria
+      post: Excluir Postagem
+      admin: Excluir Administrador
+    edit:
+      body: Confirma as alterações? Essa ação não poderá ser desfeita!
+      post_title: 'Editar o Post: %{post_name}'
+      category_title: 'Editar a Categoria: %{category_description}'
+      admin_title: 'Editar o Administrador: %{admin_name}'
+      category: Editar Categoria
+      post: Editar Postagem
+      admin: Editar Administrador
+
   activerecord:
     errors:
       messages:

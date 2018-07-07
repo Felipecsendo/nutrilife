@@ -11,8 +11,8 @@ feature 'Admin destroy Categories', js: true do
     visit backoffice_category_index_path
 
     
-     click_link('Excluir Categoria')
-     click_link('Confirmar')
+     click_link t('confirmations.destroy.category')
+     click_link t('confirmations.proceed')
      
 
     expect(page).to have_css('li', text: 'Categoria excluída com sucesso!')
