@@ -66,7 +66,7 @@ puts 'CATEGORIAS Cadastradas com sucesso!'
   
 puts 'Cadastrando BLOGS...'
 10.times do
-  Blog.create!(title: Faker::Dessert.variety,
+  Post.create!(title: Faker::Dessert.variety,
                body: LeroleroGenerator.sentence(3),
                admin: Admin.first,
                category: Category.all.sample,

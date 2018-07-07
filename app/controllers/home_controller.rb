@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   layout 'site'
   def index
-    @blogs = Blog.all
+    @posts = Post.all
     @categories = Category.all
     @admin = Admin.first
   end

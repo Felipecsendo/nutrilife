@@ -15,7 +15,7 @@ feature 'Main admin see administrators list' do
     
     visit backoffice_blog_dashboard_index_path
     
-    click_link t('see_administrators')
+    click_link t('administrators')
     
     expect(page).to have_css('th', text: '#' )
     expect(page).to have_css('th', text: t('name'))

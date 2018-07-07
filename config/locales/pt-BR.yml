@@ -25,15 +25,15 @@ pt-BR:
     admin_succesfully_created: 'Administrador %{admin_name} criado com sucesso!' 
   destroy_confirm:
     body: Realmente deseja excluir? Essa ação não poderá ser desfeita!
-    blog_title: 'Excluir o Post: %{blog_post_name}'
+    post_title: 'Excluir o Post: %{post_name}'
     category_title: 'Excluir a Categoria: %{category_description}'
     cancel: Cancelar
     proceed: Confirmar
     category: Excluir Categoria
-    blog: Excluir Postagem
+    post: Excluir Postagem
   category_confirm:
     edit: Editar Categoria
-  blog_confirm:
+  post_confirm:
     edit: Editar Postagem
   activerecord:
     errors:
@@ -43,9 +43,9 @@ pt-BR:
           has_one: Não é possível excluir o registro pois existe um %{record} dependente
           has_many: Não é possível excluir o registro pois existem %{record} dependentes
     models:
-      blog: Blog
+      post: Blog
     attributes:
-      blog:
+      post:
         title: Título
         body: Conteúdo
         category:

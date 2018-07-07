@@ -10,9 +10,9 @@ feature 'Admin see all Categories' do
                                           .join('public', 'Nutritionist2.jpg')
                                           .open)
 
-    create(:blog, category: category)
-    create(:blog, category: category)
-    create(:blog, category: category2)
+    create(:post, category: category)
+    create(:post, category: category)
+    create(:post, category: category2)
 
     login_as(admin, scope: :admin)
 
@@ -27,7 +27,7 @@ feature 'Admin see all Categories' do
                                                       .created_at
                                                       .strftime('%B %d, %Y')}")
     expect(page).to have_css('a', text: "Posts nesta categoria: #{category
-                                                                  .blogs
+                                                                  .posts
                                                                   .count}")
 
     expect(page).to have_css("img[src*='#{category.avatar.file.identifier}']")
@@ -38,7 +38,7 @@ feature 'Admin see all Categories' do
                                                       .strftime('%B %d, %Y')}")
 
     expect(page).to have_css('a', text: "Posts nesta categoria: #{category2
-                                                                 .blogs
+                                                                 .posts
                                                                  .count}")
 
     expect(page).to have_css("img[src*='#{category2.avatar.file.identifier}']")

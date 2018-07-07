@@ -31,7 +31,7 @@ feature 'Admin visit backoffice' do
     expect(page).to have_css('i.fa.fa-user.fa-fw')
 
     expect(page).to have_css('ul.nav.nav-primary-level li a', text: 'Dashboard')
-    expect(page).to have_css('ul.nav.nav-primary-level li a', text: 'Blog')
+    expect(page).to have_css('ul.nav.nav-primary-level li a', text: 'Post')
     expect(page).to have_css('ul.nav.nav-second-level li a', text: 'Novo Post')
     expect(page).to have_css('ul.nav.nav-second-level li a',
                              text: 'Visualizar Posts')

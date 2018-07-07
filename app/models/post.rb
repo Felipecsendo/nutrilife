@@ -1,4 +1,4 @@
-class Blog < ApplicationRecord
+class Post < ApplicationRecord
   
   # Validations
   validates :title, :body, :images, :admin, :category_id, presence: true

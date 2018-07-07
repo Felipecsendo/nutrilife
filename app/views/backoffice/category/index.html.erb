@@ -3,7 +3,7 @@
 <h3> <%= category.description %> </h3>
 <%= link_to "#{t('created_at')}: #{category.created_at.strftime("%B %d, %Y")}", '#'  %>
 <%= link_to "#{t('updated_at')}: #{category.updated_at.strftime('%B %d, %Y')}", '#'  %>
-<%= link_to "#{t('posts_number')}: #{category.blogs.count}", '#' %>
+<%= link_to "#{t('posts_number')}: #{category.posts.count}", '#' %>
 <%= link_to t('category_confirm.edit'), edit_backoffice_category_path(category) %>
 <%= destroy_category_link_to t('destroy_confirm.category'), backoffice_category_path(category),
       options: {title: category.description} %>

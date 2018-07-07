@@ -5,7 +5,7 @@ feature 'Visitor visit homepage' do
     create(:admin)
     create(:admin_profile)
     create(:category)
-    create(:blog)
+    create(:post)
 
     visit root_path
 
@@ -13,13 +13,13 @@ feature 'Visitor visit homepage' do
     expect(page).to have_css('p', text: 'Bem-vindo ao Mundo Saudável')
   end
 
-  scenario 'and see the Blogs' do
+  scenario 'and see the Posts' do
     # cria os dados necessários
     create(:admin)
     create(:admin_profile)
     create(:category)
-    blog = create(:blog)
-    blog2 = create(:blog, images: [Rails
+    post = create(:post)
+    post2 = create(:post, images: [Rails
                                    .root
                                    .join('public', 'Nutritionist2.jpg').open])
 
@@ -27,17 +27,17 @@ feature 'Visitor visit homepage' do
     visit root_path
 
     # expectativas do usuário após a ação
-    expect(page).to have_css('h3', text: blog.title)
-    expect(page).to have_css('a', text: blog.admin.admin_profile.name)
-    expect(page).to have_css('p', text: blog.body[0..96])
-    expect(page).to have_css('a', text: blog.created_at.strftime('%B %d, %Y'))
-    expect(page).to have_css("img[src*='#{blog.images.first.file.identifier}']")
+    expect(page).to have_css('h3', text: post.title)
+    expect(page).to have_css('a', text: post.admin.admin_profile.name)
+    expect(page).to have_css('p', text: post.body[0..96])
+    expect(page).to have_css('a', text: post.created_at.strftime('%B %d, %Y'))
+    expect(page).to have_css("img[src*='#{post.images.first.file.identifier}']")
 
-    expect(page).to have_css('h3', text: blog2.title)
-    expect(page).to have_css('a', text: blog.admin.admin_profile.name)
-    expect(page).to have_css('p', text: blog2.body[0..96])
-    expect(page).to have_css('a', text: blog2.created_at.strftime('%B %d, %Y'))
-    expect(page).to have_css("img[src*='#{blog2
+    expect(page).to have_css('h3', text: post2.title)
+    expect(page).to have_css('a', text: post.admin.admin_profile.name)
+    expect(page).to have_css('p', text: post2.body[0..96])
+    expect(page).to have_css('a', text: post2.created_at.strftime('%B %d, %Y'))
+    expect(page).to have_css("img[src*='#{post2
                                           .images.first.file.identifier}']")
   end
 
@@ -48,7 +48,7 @@ feature 'Visitor visit homepage' do
     category1 = create(:category)
     category2 = create(:category)
     category3 = create(:category)
-    create(:blog)
+    create(:post)
 
     # simula a ação do usuário
     visit root_path
@@ -69,7 +69,7 @@ feature 'Visitor visit homepage' do
     admin = create(:admin)
     create(:admin_profile)
     create(:category)
-    create(:blog)
+    create(:post)
 
     # simula a ação do usuário
     visit root_path
@@ -88,7 +88,7 @@ feature 'Visitor visit homepage' do
     create(:admin)
     create(:admin_profile)
     create(:category)
-    create(:blog)
+    create(:post)
 
     visit root_path
 

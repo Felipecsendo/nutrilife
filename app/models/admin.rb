@@ -2,7 +2,7 @@ class Admin < ApplicationRecord
   enum role: {full_access: 0, restricted_access: 1}
 
   # Associations
-  has_many :blogs, dependent: :destroy
+  has_many :posts, dependent: :destroy
   has_one :admin_profile, dependent: :destroy
   
   # Scopes

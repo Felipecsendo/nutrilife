@@ -20,7 +20,7 @@ feature 'Admin create new category' do
                              "#{Random.rand(6..10)}.jpg")
 
     category = create(:category, avatar: image2.open)
-    create(:blog, category: category)
+    create(:post, category: category)
 
     login_as(admin, scope: :admin)
     visit backoffice_blog_dashboard_index_path
@@ -47,7 +47,7 @@ feature 'Admin create new category' do
                                                  .strftime('%B %d, %Y')}")
     expect(page).to have_css('a',
                              text: "Posts nesta categoria: #{category
-                                                             .blogs.count}")
+                                                             .posts.count}")
     expect(page).to have_css("img[src*='#{File.basename(image2)}']")
   end
 end
