@@ -20,7 +20,7 @@ feature 'Main admin edit other admin', js: true do
     login_as(admin, scope: :admin)
     visit(backoffice_admin_index_path)
     
-    expect(page).to have_css('a.btn.btn-warning.btn-circle.pull-left', count: Admin.all.count)
+    expect(page).to have_css('a.btn.btn-warning.btn-circle', count: Admin.all.count)
     find("a[href='#{edit_backoffice_admin_path(admin_other)}']").click
     
     fill_in t('name'), with: name
@@ -38,5 +38,10 @@ feature 'Main admin edit other admin', js: true do
     expect(page).to have_css('td', text: email )
     expect(page).to have_css('td', text: t('restricted_access'))
     
+ end
+ 
+ scenario 'but leaves blank fields' do
+  pending("something else getting finished")
+  fail
  end
 end

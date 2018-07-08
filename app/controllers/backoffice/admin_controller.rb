@@ -1,5 +1,5 @@
 class Backoffice::AdminController < BackofficeController
-  before_action :set_admin, only: [:edit, :update]
+  before_action :set_admin, only: [:edit, :update, :destroy]
   
   def index
     @admins = Admin.all
@@ -33,6 +33,17 @@ class Backoffice::AdminController < BackofficeController
     else
       helpers.message_notices(@admin)
       render :edit
+    end
+  end
+  
+  def destroy
+    if @admin.destroy
+      redirect_to backoffice_admin_index_path,
+                  notice: t('messages.admin_succesfully_destroyed',
+                  admin_name: @admin.admin_profile.name)
+    else
+      helpers.message_notices(@admin)
+      redirect_to backoffice_admin_index_path
     end
   end
   

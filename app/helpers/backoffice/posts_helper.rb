@@ -4,14 +4,14 @@ module Backoffice::PostsHelper
     options = options[:options]
     link_to t(text), path,
       method: :delete,
-      :class => 'btn',
+      class: 'btn',
       data:{
-        confirm: t('destroy_confirm.body'),
-        'confirm-fade' => true,
-        'confirm-cancel' => t('confirmations.cancel'),
-        'confirm-cancel-class' => t('btn-default'),
-        'confirm-proceed' => t('confirmations.proceed'),
-        'confirm-proceed-class' => 'btn-danger',
+        confirm: t('confirmations.destroy.body'),
+        'confirm-fade': true,
+        'confirm-cancel': t('confirmations.cancel'),
+        'confirm-cancel-class': t('btn-default'),
+        'confirm-proceed': t('confirmations.proceed'),
+        'confirm-proceed-class': 'btn-danger',
         'confirm-title': t('confirmations.destroy.post', post_name: options[:title]),
       }
       
