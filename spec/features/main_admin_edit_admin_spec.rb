@@ -39,9 +39,4 @@ feature 'Main admin edit other admin', js: true do
     expect(page).to have_css('td', text: t('restricted_access'))
     
  end
- 
- scenario 'but leaves blank fields' do
-  pending("something else getting finished")
-  fail
- end
 end

@@ -18,6 +18,7 @@ class Backoffice::AdminController < BackofficeController
                   notice: t('messages.admin_succesfully_created',
                             admin_name: @admin.admin_profile.name)
     else
+      helpers.message_notices(@admin)
       render :new
     end
   end

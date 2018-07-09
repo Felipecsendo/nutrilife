@@ -33,7 +33,21 @@ feature 'Main admin create new admin' do
     expect(page).to have_css('td', text: name )
     expect(page).to have_css('td', text: email )
     expect(page).to have_css('td', text: t('restricted_access'))
-    
-    
+ end
+ 
+ scenario 'but leaves blank fields', driver: :webkit do
+  admin = create(:admin)
+    create(:admin_profile)
+
+    login_as(admin, scope: :admin)
+    visit(new_backoffice_admin_path)
+
+    click_button t('create')
+
+  expect(page).to have_css('li', text: 'Nome não pode ficar em branco')
+  expect(page).to have_css('li', text: 'E-mail não pode ficar em branco')
+  expect(page).to have_css('li', text: 'Senha não pode ficar em branco')
+  expect(page).to have_css('li', text: 'Foto não pode ficar em branco')
+  expect(page).to have_css('li', text: 'Descrição não pode ficar em branco')
  end
 end
