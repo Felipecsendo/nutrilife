@@ -19,6 +19,7 @@ class Backoffice::PostController < BackofficeController
     if @post.save
       redirect_to backoffice_post_index_path
     else
+      helpers.message_notices(@post)
       render :new
     end
   end

@@ -34,8 +34,11 @@ feature 'Admin Edit category', js: true do
 
     expect(page).not_to have_css('h3', text: description)
 
-    expect(page).not_to have_css("img[src*='#{File.basename(category.avatar.file.identifier)}']")
+    expect(page)
+      .not_to have_css("img[src*='#{File
+                                    .basename(category
+                                              .avatar.file.identifier)}']")
   end
-  
-  Capybara.use_default_driver 
+
+  Capybara.use_default_driver
 end

@@ -24,11 +24,11 @@ feature 'Admin see all Posts' do
     expect(page).to have_css('a', text: post.created_at.strftime('%B %d, %Y'))
     expect(page).to have_css("img[src*='#{post.images.first.file.identifier}']")
     expect(page).to have_css("img[src*='#{post.images.first.file.identifier}']")
-    
-    expect(page).to have_link('Editar', href: edit_backoffice_post_path(post.id))
-    #find("a[href='#{edit_backoffice_post_path(post.id)}']")
-    expect(page).to have_link('Excluir', href: backoffice_post_path(post.id))
-    
+
+    expect(page).to have_link(t('edit'),
+                              href: edit_backoffice_post_path(post.id))
+    expect(page).to have_link(t('destroy'), href: backoffice_post_path(post.id))
+
     expect(page).to have_css('h3', text: post2.title)
     expect(page).to have_css('a', text: post.admin.admin_profile.name)
     expect(page).to have_css('p', text: post2.body[0..96])
@@ -37,9 +37,9 @@ feature 'Admin see all Posts' do
                                           .images
                                           .first
                                           .file.identifier}']")
-                                          
-    expect(page).to have_link('Editar', href: edit_backoffice_post_path(post2.id))
-    #find("a[href='#{edit_backoffice_post_path(post2.id)}']")
-    expect(page).to have_link('Excluir', href: backoffice_post_path(post.id))
+
+    expect(page).to have_link(t('edit'),
+                              href: edit_backoffice_post_path(post2.id))
+    expect(page).to have_link(t('destroy'), href: backoffice_post_path(post.id))
   end
 end

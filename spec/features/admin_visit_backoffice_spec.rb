@@ -16,7 +16,7 @@ feature 'Admin visit backoffice' do
     create(:admin_profile)
 
     visit backoffice_blog_dashboard_index_path
-    
+
     fill_in 'E-mail', with: admin.email
     fill_in 'Senha', with: '123456'
     click_button 'Log in'

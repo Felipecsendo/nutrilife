@@ -1,5 +1,4 @@
 class Post < ApplicationRecord
-  
   # Validations
   validates :title, :body, :images, :admin, :category_id, presence: true
 
@@ -11,4 +10,3 @@ class Post < ApplicationRecord
   mount_uploaders :images, ImageUploader
   serialize :images, JSON # If you use SQLite, add this line.
 end
-

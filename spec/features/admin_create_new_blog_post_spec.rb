@@ -33,4 +33,19 @@ feature 'Admin create new blog post' do
     expect(page).to have_css('a', text: Time.zone.now.strftime('%B %d, %Y'))
     expect(page).to have_css("img[src*='#{File.basename(image)}']")
   end
+
+  scenario 'but fields are blank' do
+    admin = create(:admin)
+    create(:admin_profile)
+    create(:category)
+
+    login_as(admin, scope: :admin)
+
+    visit new_backoffice_post_path
+
+    click_button t('create')
+
+    expect(page).to have_css('li', text: 'Título não pode ficar em branco')
+    expect(page).to have_css('li', text: 'Conteúdo não pode ficar em branco')
+  end
 end

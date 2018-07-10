@@ -1,7 +1,7 @@
 class AdminProfile < ApplicationRecord
   # Validations
   validates :name, :description, :avatar, presence: true
-  
+
   # Associations
   belongs_to :admin
 

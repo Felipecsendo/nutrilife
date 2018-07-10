@@ -13,6 +13,7 @@ pt-BR:
   see_administrators: Visualizar Administradores
   name: Nome
   email: E-mail
+  description: Descrição
   authorization: Autorização
   category: Categoria
   new_category: Nova Categoria
