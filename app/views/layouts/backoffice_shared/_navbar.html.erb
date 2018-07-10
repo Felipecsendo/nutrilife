@@ -103,7 +103,7 @@
                                     <%= link_to 'Novo Post', new_backoffice_post_path %>
                                 </li>
                                 <li>
-                                    <%= link_to 'Visualizar Posts', backoffice_post_index_path %>
+                                    <%= link_to 'Visualizar Posts', backoffice_posts_path %>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -116,14 +116,14 @@
                                     <%= link_to t('new_category'), new_backoffice_category_path %>
                                 </li>
                                 <li>
-                                    <%= link_to t('see_categories'), backoffice_category_index_path %>
+                                    <%= link_to t('see_categories'), backoffice_categories_path %>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         
                         <li>
-                            <%= link_to backoffice_admin_index_path do %>
+                            <%= link_to backoffice_admins_path do %>
                                 <i class="fa fa-sitemap fa-fw"></i>
                                 <%= t('administrators') %>
                             <% end %>

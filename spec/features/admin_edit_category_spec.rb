@@ -16,7 +16,7 @@ feature 'Admin Edit category', js: true do
     category = create(:category, description: description)
 
     login_as(admin, scope: :admin)
-    visit backoffice_category_index_path
+    visit  backoffice_categories_path
 
     click_link('Editar Categoria')
 
@@ -24,7 +24,7 @@ feature 'Admin Edit category', js: true do
     attach_file image
     click_button('Editar')
 
-    expect(page).to have_current_path(backoffice_category_index_path)
+    expect(page).to have_current_path( backoffice_categories_path)
 
     expect(page).to have_css('h3', text: description2)
     expect(page).to have_css('a',

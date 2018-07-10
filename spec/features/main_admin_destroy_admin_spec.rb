@@ -9,7 +9,7 @@ feature 'Main admin destroy other admin', js: true do
     create(:admin_profile, admin_id: admin2.id)
 
     login_as(admin, scope: :admin)
-    visit backoffice_admin_index_path
+    visit  backoffice_admins_path
 
     expect(page)
       .to have_css('a.btn.btn-danger.btn-circle', count: Admin.all.count)

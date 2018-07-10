@@ -8,7 +8,7 @@ feature 'Admin destroy Categories', js: true do
 
     login_as(admin, scope: :admin)
 
-    visit backoffice_category_index_path
+    visit  backoffice_categories_path
 
     click_link t('confirmations.destroy.category')
     click_link t('confirmations.proceed')

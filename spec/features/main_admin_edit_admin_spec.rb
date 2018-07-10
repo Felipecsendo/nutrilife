@@ -18,11 +18,11 @@ feature 'Main admin edit other admin', js: true do
                             "#{Random.rand(1..16)}.jpg")
 
     login_as(admin, scope: :admin)
-    visit(backoffice_admin_index_path)
+    visit( backoffice_admins_path)
 
     expect(page).to have_css('a.btn.btn-warning.btn-circle',
                              count: Admin.all.count)
-    find("a[href='#{edit_backoffice_admin_path(admin_other)}']").click
+    find("a[href='#{ edit_backoffice_admin_path(admin_other)}']").click
 
     fill_in t('name'), with: name
     fill_in t('email'), with: email

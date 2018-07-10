@@ -1,4 +1,4 @@
-class Backoffice::PostController < BackofficeController
+class Backoffice::PostsController < BackofficeController
   before_action :authenticate_admin!
   before_action :set_categories, only:[:new, :edit]
   before_action :set_post, only:[:edit, :update, :destroy]
@@ -17,7 +17,7 @@ class Backoffice::PostController < BackofficeController
     @post.admin = current_admin
     
     if @post.save
-      redirect_to backoffice_post_index_path
+      redirect_to  backoffice_posts_path
     else
       helpers.message_notices(@post)
       render :new
@@ -29,7 +29,7 @@ class Backoffice::PostController < BackofficeController
   
   def update
     if @post.update(post_params)
-      redirect_to backoffice_post_index_path, notice: 'Postagem editada com sucesso!'
+      redirect_to  backoffice_posts_path, notice: 'Postagem editada com sucesso!'
     else
       helpers.message_notices(@post)
       render :edit
@@ -38,9 +38,9 @@ class Backoffice::PostController < BackofficeController
   
   def destroy
     if @post.destroy
-      redirect_to backoffice_post_index_path, notice: 'Postagem excluída com sucesso!'
+      redirect_to  backoffice_posts_path, notice: 'Postagem excluída com sucesso!'
     else
-      redirect_to backoffice_post_index_path, notice: 'Não foi possível realizar esta ação.'
+      redirect_to  backoffice_posts_path, notice: 'Não foi possível realizar esta ação.'
     end
   end
   

@@ -2,6 +2,7 @@ pt-BR:
   password: Senha
   edit: Editar
   create: Criar
+  destroy: Excluir
   created_at: Criado em
   updated_at: Atualizado em
   posts_number: Posts nesta categoria

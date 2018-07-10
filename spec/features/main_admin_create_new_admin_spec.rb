@@ -16,7 +16,7 @@ feature 'Main admin create new admin' do
                             "#{Random.rand(1..16)}.jpg")
 
     login_as(admin, scope: :admin)
-    visit(backoffice_admin_index_path)
+    visit( backoffice_admins_path)
 
     expect(page).to have_css('a.btn.btn-success.btn-circle', count: 1)
     find('a.btn.btn-success.btn-circle.pull-right').click
@@ -42,7 +42,7 @@ feature 'Main admin create new admin' do
     create(:admin_profile)
 
     login_as(admin, scope: :admin)
-    visit(new_backoffice_admin_path)
+    visit( new_backoffice_admin_path)
 
     click_button t('create')
 

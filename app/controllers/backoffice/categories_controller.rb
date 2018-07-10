@@ -1,4 +1,4 @@
-class Backoffice::CategoryController < BackofficeController
+class Backoffice::CategoriesController < BackofficeController
   before_action :authenticate_admin!
   before_action :set_category, only: [:destroy, :edit, :update]
   
@@ -13,7 +13,7 @@ class Backoffice::CategoryController < BackofficeController
   def create
     @category = Category.new(category_params)
     if @category.save
-      redirect_to backoffice_category_index_path
+      redirect_to  backoffice_categories_path
     else
       render :new
     end
@@ -24,7 +24,7 @@ class Backoffice::CategoryController < BackofficeController
   
   def update
     if @category.update(category_params)
-      redirect_to backoffice_category_index_path, notice: 'Categoria editada com sucesso!'
+      redirect_to  backoffice_categories_path, notice: 'Categoria editada com sucesso!'
     else
       helpers.message_notices(@category)
       render :edit
@@ -33,9 +33,9 @@ class Backoffice::CategoryController < BackofficeController
   
   def destroy
     if @category.destroy
-      redirect_to backoffice_category_index_path, notice: 'Categoria excluída com sucesso!'
+      redirect_to  backoffice_categories_path, notice: 'Categoria excluída com sucesso!'
     else
-      redirect_to backoffice_category_index_path, alert: 'Não foi possível realizar esta ação.'
+      redirect_to  backoffice_categories_path, alert: 'Não foi possível realizar esta ação.'
     end
   end
   

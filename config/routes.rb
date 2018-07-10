@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   
   namespace :backoffice do
     resources :blog_dashboard, only:[:index]
-    resources :post, only:[:index, :new, :create, :edit, :update, :destroy]
-    resources :category, only:[:index, :new, :create, :edit, :update, :destroy]
-    resources :admin, only:[:index, :new, :create, :edit, :update, :destroy]
+    resources :posts, only:[:index, :new, :create, :edit, :update, :destroy]
+    resources :categories, only:[:index, :new, :create, :edit, :update, :destroy]
+    resources :admins, only:[:index, :new, :create, :edit, :update, :destroy]
   end
   
   

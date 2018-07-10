@@ -16,7 +16,7 @@ feature 'Admin see all Posts' do
 
     click_link('Visualizar Posts')
 
-    expect(page).to have_current_path(backoffice_post_index_path)
+    expect(page).to have_current_path( backoffice_posts_path)
 
     expect(page).to have_css('h3', text: post.title)
     expect(page).to have_css('a', text: post.admin.admin_profile.name)

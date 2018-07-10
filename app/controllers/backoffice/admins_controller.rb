@@ -1,4 +1,4 @@
-class Backoffice::AdminController < BackofficeController
+class Backoffice::AdminsController < BackofficeController
   before_action :set_admin, only: [:edit, :update, :destroy]
   
   def index
@@ -14,7 +14,7 @@ class Backoffice::AdminController < BackofficeController
     @admin = Admin.new(admin_params)
     @admin.role = 1
     if @admin.save
-      redirect_to backoffice_admin_index_path,
+      redirect_to  backoffice_admins_path,
                   notice: t('messages.admin_succesfully_created',
                             admin_name: @admin.admin_profile.name)
     else
@@ -28,7 +28,7 @@ class Backoffice::AdminController < BackofficeController
   
   def update
     if @admin.update(admin_params)
-      redirect_to backoffice_admin_index_path,
+      redirect_to  backoffice_admins_path,
                   notice: t('messages.admin_succesfully_edited',
                   admin_name: @admin.admin_profile.name)
     else
@@ -39,12 +39,12 @@ class Backoffice::AdminController < BackofficeController
   
   def destroy
     if @admin.destroy
-      redirect_to backoffice_admin_index_path,
+      redirect_to  backoffice_admins_path,
                   notice: t('messages.admin_succesfully_destroyed',
                   admin_name: @admin.admin_profile.name)
     else
       helpers.message_notices(@admin)
-      redirect_to backoffice_admin_index_path
+      redirect_to  backoffice_admins_path
     end
   end
   
