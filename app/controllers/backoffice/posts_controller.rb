@@ -1,5 +1,4 @@
 class Backoffice::PostsController < BackofficeController
-  before_action :authenticate_admin!
   before_action :set_categories, only:[:new, :edit]
   before_action :set_post, only:[:edit, :update, :destroy]
   

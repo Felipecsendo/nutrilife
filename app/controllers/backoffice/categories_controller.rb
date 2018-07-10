@@ -1,5 +1,4 @@
 class Backoffice::CategoriesController < BackofficeController
-  before_action :authenticate_admin!
   before_action :set_category, only: [:destroy, :edit, :update]
   
   def index

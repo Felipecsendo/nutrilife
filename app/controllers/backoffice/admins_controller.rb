@@ -3,11 +3,13 @@ class Backoffice::AdminsController < BackofficeController
   
   def index
     @admins = Admin.all
+    @current_admin = current_admin
   end
   
   def new
     @admin = Admin.new
     @admin.build_admin_profile
+    authorize @admin 
   end
   
   def create
@@ -38,6 +40,7 @@ class Backoffice::AdminsController < BackofficeController
   end
   
   def destroy
+    authorize @admin
     if @admin.destroy
       redirect_to  backoffice_admins_path,
                   notice: t('messages.admin_succesfully_destroyed',

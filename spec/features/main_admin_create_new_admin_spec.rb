@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Main admin create new admin' do
   scenario 'successfully' do
-    admin = create(:admin)
+    admin = create(:admin, role: 0)
     create(:admin_profile)
     name = Faker::Name.name
     email = Faker::Internet.email
@@ -54,7 +54,15 @@ feature 'Main admin create new admin' do
   end
 
   scenario 'but dont have the authorization' do
-    pending('something else getting finished')
-    raise
+   admin = create(:admin, role: 1)
+   create(:admin_profile)
+   
+   login_as(admin, scope: :admin)
+   visit( backoffice_admins_path)
+
+   expect(page).not_to have_css('a.btn.btn-success.btn-circle')
+   
+   pending('something else getting finished')
+   raise
   end
 end
