@@ -69,8 +69,6 @@ feature 'Main admin create new admin' do
   scenario 'but dont have the authorization and try it by route' do
    admin = create(:admin, role: 1)
    create(:admin_profile)
-   create(:category)
-   create(:post)
    
    login_as(admin, scope: :admin)
    visit(new_backoffice_admin_path)

@@ -9,7 +9,7 @@ class AdminPolicy < ApplicationPolicy
   end
   
   def edit?
-    user.full_access?
+    user.full_access? || user.id == record.id
   end
   
   class Scope < Scope

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-feature 'Main admin edit other admin', js: true do
-  scenario 'successfully', driver: :webkit do
+feature 'Admin edit other admin', js: true do
+  scenario 'successfully, being Full Access Admin', driver: :webkit do
     admin = create(:admin, role: 0)
     create(:admin_profile)
     admin_other = create(:admin, role: 1)
@@ -39,9 +39,69 @@ feature 'Main admin edit other admin', js: true do
     expect(page).to have_css('td', text: email)
     expect(page).to have_css('td', text: t('restricted_access'))
   end
+  
+  scenario 'successfully, being the profile owner itself', driver: :webkit do
+    admin = create(:admin, role: 1)
+    create(:admin_profile, name: 'juca', admin: admin)
 
-  scenario 'but dont have the authorization' do
-    pending('something else getting finished')
-    raise
+    new_name = Faker::Name.unique.name
+    new_email = Faker::Internet.unique.email
+    password = '123456'
+    image = Rails.root.join('public',
+                            'templates',
+                            'yummy',
+                            'img',
+                            'blog-img',
+                            "#{Random.rand(1..16)}.jpg")
+
+    login_as(admin, scope: :admin)
+    visit(backoffice_admins_path)
+
+    find("a[href='#{ edit_backoffice_admin_path(admin)}']").click
+
+    fill_in t('name'), with: new_name
+    fill_in t('description'), with: 'qwqwqwqw'
+    fill_in t('email'), with: new_email
+    fill_in t('password'), with: password
+    fill_in t('password_confirmation'), with: password
+    attach_file image
+    click_button t('edit')
+    click_link t('confirmations.proceed')
+    
+    fill_in placeholder: t('email'), with: new_email
+    fill_in placeholder: t('password'), with: password
+    click_button 'Log in'
+    visit(backoffice_admins_path)
+  
+    expect(page).to have_css('td', text: admin.id)
+    expect(page).to have_css('td', text: new_name)
+    expect(page).to have_css('td', text: new_email)
+    expect(page).to have_css('td', text: t('restricted_access'))
+  end
+
+  scenario 'but dont have the authorization', driver: :webkit do
+   admin = create(:admin, role: 1)
+   create(:admin_profile, admin: admin)
+   admin2 = create(:admin, role: 1)
+   create(:admin_profile, admin: admin2 )
+
+   login_as(admin, scope: :admin)
+   visit(backoffice_admins_path)
+
+   find("a[href='#{ edit_backoffice_admin_path(admin2)}']").click
+
+   expect(page).to have_css('li', text: t('pundit.you_are_not_authorized_to_perform_this_action'))
+  end
+  
+  scenario 'but dont have the authorization and try it by route', driver: :webkit do
+   admin = create(:admin, role: 1)
+   create(:admin_profile, admin: admin)
+   admin2 = create(:admin, role: 1)
+   create(:admin_profile, admin: admin2)
+  
+   login_as(admin, scope: :admin)
+   visit(edit_backoffice_admin_path(admin2))
+
+   expect(page).to have_css('li', text: t('pundit.you_are_not_authorized_to_perform_this_action'))
   end
 end

@@ -26,6 +26,7 @@ class Backoffice::AdminsController < BackofficeController
   end
   
   def edit
+    authorize @admin
   end
   
   def update
