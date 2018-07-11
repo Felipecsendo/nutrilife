@@ -37,12 +37,12 @@ feature 'Main admin create new admin' do
     expect(page).to have_css('td', text: t('restricted_access'))
   end
 
-  scenario 'but leaves blank fields', driver: :webkit do
-    admin = create(:admin)
+  scenario 'but leaves blank fields' do
+    admin = create(:admin, role: 0)
     create(:admin_profile)
 
     login_as(admin, scope: :admin)
-    visit( new_backoffice_admin_path)
+    visit(new_backoffice_admin_path)
 
     click_button t('create')
 
@@ -58,11 +58,23 @@ feature 'Main admin create new admin' do
    create(:admin_profile)
    
    login_as(admin, scope: :admin)
-   visit( backoffice_admins_path)
+   visit(backoffice_admins_path)
 
    expect(page).not_to have_css('a.btn.btn-success.btn-circle')
    
    pending('something else getting finished')
    raise
+  end
+  
+  scenario 'but dont have the authorization and try it by route' do
+   admin = create(:admin, role: 1)
+   create(:admin_profile)
+   create(:category)
+   create(:post)
+   
+   login_as(admin, scope: :admin)
+   visit(new_backoffice_admin_path)
+
+   expect(page).to have_css('li', text: t('pundit.you_are_not_authorized_to_perform_this_action'))
   end
 end

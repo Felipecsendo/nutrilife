@@ -32,3 +32,6 @@
 en:
   hello: "Hello world"
   title: Título
+  pundit:
+    you_are_not_authorized_to_perform_this_action: You are not authorized to perform this action.
+
