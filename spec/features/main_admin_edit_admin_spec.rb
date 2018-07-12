@@ -72,7 +72,7 @@ feature 'Admin edit other admin', js: true do
     fill_in placeholder: t('password'), with: password
     click_button 'Log in'
     visit(backoffice_admins_path)
-  
+    puts current_path
     expect(page).to have_css('td', text: admin.id)
     expect(page).to have_css('td', text: new_name)
     expect(page).to have_css('td', text: new_email)

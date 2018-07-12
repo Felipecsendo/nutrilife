@@ -61,9 +61,6 @@ feature 'Main admin create new admin' do
    visit(backoffice_admins_path)
 
    expect(page).not_to have_css('a.btn.btn-success.btn-circle')
-   
-   pending('something else getting finished')
-   raise
   end
   
   scenario 'but dont have the authorization and try it by route' do

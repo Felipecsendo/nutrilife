@@ -25,10 +25,19 @@ feature 'Main admin destroy other admin', js: true do
     expect(page).not_to have_css('td', text: t('restricted_access'))
   end
 
-  Capybara.use_default_driver
+  scenario 'but dont have the authorization', driver: :rack_test do
+    admin = create(:admin, role: 0)
+    create(:admin_profile)
 
-  scenario 'but dont have the authorization' do
-    pending('something else getting finished')
-    raise
+    admin2 = create(:admin, role: 1)
+    create(:admin_profile, admin_id: admin2.id)
+
+    login_as(admin2, scope: :admin)
+    visit  backoffice_admins_path
+    
+    find("a[href='#{backoffice_admin_path(admin)}']").click
+   
+    expect(page).to have_css('li', text: t('pundit.you_are_not_authorized_to_perform_this_action'))
+
   end
 end
