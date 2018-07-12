@@ -16,7 +16,7 @@
                       </div>
                       <!-- Post Date -->
                       <div class="post-date">
-                          <a href="#"><%= post.created_at.strftime("%B %d, %Y") %></a>
+                          <%= link_to post.created_at.strftime("%B %d, %Y"), blog_search_date_path(post.created_at) %>
                       </div>
                   </div>
                   <!-- Post Comment & Share Area -->

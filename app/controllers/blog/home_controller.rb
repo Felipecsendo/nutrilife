@@ -1,5 +1,4 @@
-class HomeController < ApplicationController
-  layout 'site'
+class Blog::HomeController < BlogController
   def index
     @posts = Post.all
     @categories = Category.all
