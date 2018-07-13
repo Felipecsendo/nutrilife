@@ -6,9 +6,15 @@ feature 'Visitor see posts filter by date' do
     create(:admin)
     create(:admin_profile)
     create(:category)
+    image = Rails.root.join('public',
+                            'templates',
+                            'yummy',
+                            'img',
+                            'blog-img',
+                            "#{Random.rand(1..16)}.jpg")
     post = create(:post)
     post2 = create(:post)
-    post3 = create(:post, title: Faker::Name.unique.name, created_at: Date.yesterday.to_s)
+    post3 = create(:post, title: Faker::Name.unique.name, created_at: Date.yesterday.to_s, images: [image.open])
 
     visit root_path
   
