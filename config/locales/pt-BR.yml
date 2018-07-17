@@ -22,12 +22,28 @@ pt-BR:
   full_access: Acesso Completo
   restricted_access: Acesso Restrito
   password_confirmation: Confirmação de Senha
+  dashboard: Painel de Controle
+  date/time: Data/Hora
+  action: Ação
   messages:
     admin_succesfully_created: 'Administrador %{admin_name} criado com sucesso!'
+    admin_was_created: 'Administrador %{admin_name} foi criado.'
     admin_succesfully_edited: 'Administrador(a) %{admin_name} editado(a) com sucesso!'
+    admin_was_edited: 'Administrador(a) %{admin_name} foi editado(a).'
     admin_succesfully_destroyed: 'Administrador(a) %{admin_name} excluído(a) com sucesso!'
+    admin_was_destroyed: 'Administrador(a) %{admin_name} excluído(a).'
     post_succesfully_created: 'Postagem %{post_title} criada com sucesso!'
+    post_was_created: 'Postagem %{post_title} foi criada.'
+    post_succesfully_edited: 'Postagem %{post_title} editada com sucesso!'
+    post_was_edited: 'Postagem %{post_title} foi editada.'
+    post_succesfully_destroyed: 'Postagem %{post_title} excluída com sucesso!'
+    post_was_destroyed: 'Postagem %{post_title} foi excluída.'
     category_succesfully_created: 'Categoria %{category_description} criada com sucesso!'
+    category_was_created: 'Categoria %{category_description} foi criada.'
+    category_succesfully_edited: 'Categoria %{category_description} editada com sucesso!'
+    category_was_edited: 'Categoria %{category_description} foi editada.'
+    category_succesfully_destroyed: 'Categoria %{category_description} excluída com sucesso!'
+    category_was_destroyed: 'Categoria %{category_description} foi excluída.'
   confirmations:
     cancel: Cancelar
     proceed: Confirmar
