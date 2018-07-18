@@ -19,7 +19,7 @@ feature 'Admin edit Post Post' do
 
     login_as(admin, scope: :admin)
 
-    visit  backoffice_posts_path
+    visit backoffice_posts_path
 
     click_link('Editar Postagem')
 

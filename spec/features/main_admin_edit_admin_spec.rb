@@ -18,11 +18,11 @@ feature 'Admin edit other admin', js: true do
                             "#{Random.rand(1..16)}.jpg")
 
     login_as(admin, scope: :admin)
-    visit( backoffice_admins_path)
+    visit(backoffice_admins_path)
 
     expect(page).to have_css('a.btn.btn-warning.btn-circle',
                              count: Admin.all.count)
-    find("a[href='#{ edit_backoffice_admin_path(admin_other)}']").click
+    find("a[href='#{edit_backoffice_admin_path(admin_other)}']").click
 
     fill_in t('name'), with: name
     fill_in t('email'), with: email
@@ -39,7 +39,7 @@ feature 'Admin edit other admin', js: true do
     expect(page).to have_css('td', text: email)
     expect(page).to have_css('td', text: t('restricted_access'))
   end
-  
+
   scenario 'successfully, being the profile owner itself', driver: :webkit do
     admin = create(:admin, role: 1)
     create(:admin_profile, name: 'juca', admin: admin)
@@ -57,7 +57,7 @@ feature 'Admin edit other admin', js: true do
     login_as(admin, scope: :admin)
     visit(backoffice_admins_path)
 
-    find("a[href='#{ edit_backoffice_admin_path(admin)}']").click
+    find("a[href='#{edit_backoffice_admin_path(admin)}']").click
 
     fill_in t('name'), with: new_name
     fill_in t('description'), with: 'qwqwqwqw'
@@ -67,7 +67,7 @@ feature 'Admin edit other admin', js: true do
     attach_file image
     click_button t('edit')
     click_link t('confirmations.proceed')
-    
+
     fill_in placeholder: t('email'), with: new_email
     fill_in placeholder: t('password'), with: password
     click_button 'Log in'
@@ -80,28 +80,34 @@ feature 'Admin edit other admin', js: true do
   end
 
   scenario 'but dont have the authorization', driver: :webkit do
-   admin = create(:admin, role: 1)
-   create(:admin_profile, admin: admin)
-   admin2 = create(:admin, role: 1)
-   create(:admin_profile, admin: admin2 )
+    admin = create(:admin, role: 1)
+    create(:admin_profile, admin: admin)
+    admin2 = create(:admin, role: 1)
+    create(:admin_profile, admin: admin2)
 
-   login_as(admin, scope: :admin)
-   visit(backoffice_admins_path)
+    login_as(admin, scope: :admin)
+    visit(backoffice_admins_path)
 
-   find("a[href='#{ edit_backoffice_admin_path(admin2)}']").click
+    find("a[href='#{edit_backoffice_admin_path(admin2)}']").click
 
-   expect(page).to have_css('li', text: t('pundit.you_are_not_authorized_to_perform_this_action'))
+    expect(page)
+      .to have_css('li',
+                   text: t('pundit' \
+                           '.you_are_not_authorized_to_perform_this_action'))
   end
-  
-  scenario 'but dont have the authorization and try it by route', driver: :webkit do
-   admin = create(:admin, role: 1)
-   create(:admin_profile, admin: admin)
-   admin2 = create(:admin, role: 1)
-   create(:admin_profile, admin: admin2)
-  
-   login_as(admin, scope: :admin)
-   visit(edit_backoffice_admin_path(admin2))
 
-   expect(page).to have_css('li', text: t('pundit.you_are_not_authorized_to_perform_this_action'))
+  scenario 'but try it by route without authorization', driver: :webkit do
+    admin = create(:admin, role: 1)
+    create(:admin_profile, admin: admin)
+    admin2 = create(:admin, role: 1)
+    create(:admin_profile, admin: admin2)
+
+    login_as(admin, scope: :admin)
+    visit(edit_backoffice_admin_path(admin2))
+
+    expect(page)
+      .to have_css('li',
+                   text: t('pundit' \
+                           '.you_are_not_authorized_to_perform_this_action'))
   end
 end

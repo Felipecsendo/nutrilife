@@ -2,8 +2,8 @@ require 'rails_helper'
 
 feature 'Visitor visit homepage' do
   scenario 'successfully' do
-    create(:admin)
-    create(:admin_profile)
+    admin = create(:admin)
+    create(:admin_profile, admin: admin)
     create(:category)
     create(:post)
 
@@ -14,8 +14,8 @@ feature 'Visitor visit homepage' do
   end
 
   scenario 'and see the Posts' do
-    create(:admin)
-    create(:admin_profile)
+    admin = create(:admin)
+    create(:admin_profile, admin: admin)
     create(:category)
     post = create(:post)
     post2 = create(:post, images: [Rails
@@ -39,8 +39,8 @@ feature 'Visitor visit homepage' do
   end
 
   scenario 'and see the categories' do
-    create(:admin)
-    create(:admin_profile)
+    admin = create(:admin)
+    create(:admin_profile, admin: admin)
     category1 = create(:category)
     category2 = create(:category)
     category3 = create(:category)
@@ -60,7 +60,7 @@ feature 'Visitor visit homepage' do
 
   scenario 'and see admin info' do
     admin = create(:admin)
-    create(:admin_profile)
+    create(:admin_profile, admin: admin)
     create(:category)
     create(:post)
 
@@ -76,7 +76,8 @@ feature 'Visitor visit homepage' do
   end
 
   scenario 'and see social networks' do
-    create(:admin)
+    admin = create(:admin)
+    create(:admin_profile, admin: admin)
     create(:admin_profile)
     create(:category)
     create(:post)

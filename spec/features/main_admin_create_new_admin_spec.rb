@@ -16,7 +16,7 @@ feature 'Main admin create new admin' do
                             "#{Random.rand(1..16)}.jpg")
 
     login_as(admin, scope: :admin)
-    visit( backoffice_admins_path)
+    visit(backoffice_admins_path)
 
     expect(page).to have_css('a.btn.btn-success.btn-circle', count: 1)
     find('a.btn.btn-success.btn-circle.pull-right').click
@@ -54,22 +54,25 @@ feature 'Main admin create new admin' do
   end
 
   scenario 'but dont have the authorization' do
-   admin = create(:admin, role: 1)
-   create(:admin_profile)
-   
-   login_as(admin, scope: :admin)
-   visit(backoffice_admins_path)
+    admin = create(:admin, role: 1)
+    create(:admin_profile)
 
-   expect(page).not_to have_css('a.btn.btn-success.btn-circle')
+    login_as(admin, scope: :admin)
+    visit(backoffice_admins_path)
+
+    expect(page).not_to have_css('a.btn.btn-success.btn-circle')
   end
-  
-  scenario 'but dont have the authorization and try it by route' do
-   admin = create(:admin, role: 1)
-   create(:admin_profile)
-   
-   login_as(admin, scope: :admin)
-   visit(new_backoffice_admin_path)
 
-   expect(page).to have_css('li', text: t('pundit.you_are_not_authorized_to_perform_this_action'))
+  scenario 'but dont have the authorization and try it by route' do
+    admin = create(:admin, role: 1)
+    create(:admin_profile)
+
+    login_as(admin, scope: :admin)
+    visit(new_backoffice_admin_path)
+
+    expect(page)
+      .to have_css('li',
+                   text: t('pundit' \
+                           '.you_are_not_authorized_to_perform_this_action'))
   end
 end

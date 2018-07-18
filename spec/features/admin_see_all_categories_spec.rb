@@ -20,7 +20,7 @@ feature 'Admin see all Categories' do
 
     click_link('Visualizar Categorias')
 
-    expect(page).to have_current_path( backoffice_categories_path)
+    expect(page).to have_current_path(backoffice_categories_path)
 
     expect(page).to have_css('h3', text: category.description)
     expect(page).to have_css('a', text: "Criado em: #{category

@@ -25,7 +25,7 @@ feature 'Admin create new blog post' do
     attach_file image
     click_button('Criar')
 
-    expect(page).to have_current_path( backoffice_posts_path)
+    expect(page).to have_current_path(backoffice_posts_path)
 
     expect(page).to have_css('h3', text: title)
     expect(page).to have_css('a', text: admin.admin_profile.name)

@@ -31,7 +31,7 @@ feature 'Admin create new category' do
     attach_file image
     click_button('Criar')
 
-    expect(page).to have_current_path( backoffice_categories_path)
+    expect(page).to have_current_path(backoffice_categories_path)
 
     expect(page).to have_css('h3', text: description)
     expect(page).to have_css('a',
