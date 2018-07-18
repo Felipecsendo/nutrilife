@@ -9,7 +9,7 @@ feature 'Main admin destroy other admin', js: true do
     create(:admin_profile, admin_id: admin2.id)
 
     login_as(admin, scope: :admin)
-    visit  backoffice_admins_path
+    visit backoffice_admins_path
 
     expect(page)
       .to have_css('a.btn.btn-danger.btn-circle', count: Admin.all.count)
@@ -33,11 +33,13 @@ feature 'Main admin destroy other admin', js: true do
     create(:admin_profile, admin_id: admin2.id)
 
     login_as(admin2, scope: :admin)
-    visit  backoffice_admins_path
-    
-    find("a[href='#{backoffice_admin_path(admin)}']").click
-   
-    expect(page).to have_css('li', text: t('pundit.you_are_not_authorized_to_perform_this_action'))
+    visit backoffice_admins_path
 
+    find("a[href='#{backoffice_admin_path(admin)}']").click
+
+    expect(page)
+      .to have_css('li',
+                   text: t('pundit' \
+                           '.you_are_not_authorized_to_perform_this_action'))
   end
 end

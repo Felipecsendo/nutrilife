@@ -9,7 +9,7 @@ feature 'Admin destroy Post Posts', js: true do
 
     login_as(admin, scope: :admin)
 
-    visit  backoffice_posts_path
+    visit backoffice_posts_path
 
     click_link t('confirmations.destroy.post')
     click_link t('confirmations.proceed')

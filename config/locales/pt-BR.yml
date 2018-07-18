@@ -48,7 +48,7 @@ pt-BR:
       post: Editar Postagem
       admin: Editar Administrador
   pundit:
-    you_are_not_authorized_to_perform_this_action: Você não está autorizado a fazer esta ação.
+    you_are_not_authorized_to_perform_this_action: Você não está autorizado a realizar esta ação.
   activerecord:
     errors:
       messages:
