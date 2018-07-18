@@ -30,6 +30,7 @@ jobs:
           name: Install System Dependencies
           command: |
             sudo apt-get update
+            sudo apt-get install xvfb
             sudo apt-get install qt5-default libqt5webkit5-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x
 
       - run:
@@ -53,11 +54,11 @@ jobs:
             mkdir /tmp/test-results
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
             
-            bundle exec rspec --format progress \
-                            --format RspecJunitFormatter \
-                            --out /tmp/test-results/rspec.xml \
-                            --format progress \
-                            $TEST_FILES
+            xvfb-run -a bundle exec rspec --format progress \
+                                          --format RspecJunitFormatter \
+                                          --out /tmp/test-results/rspec.xml \
+                                          --format progress \
+                                          $TEST_FILES
 
       # collect reports
       - store_test_results:
