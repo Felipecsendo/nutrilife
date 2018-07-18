@@ -34,7 +34,7 @@ jobs:
             sudo apt-get install qt5-default libqt5webkit5-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x
 
       - run:
-          name: Install gem dependencies
+          name: Install Gems
           command: |
             bundle install --jobs=4 --retry=3 --path vendor/bundle
 
@@ -49,7 +49,7 @@ jobs:
 
       # run tests!
       - run:
-          name: run tests
+          name: Run Specs
           command: |
             mkdir /tmp/test-results
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
@@ -58,6 +58,10 @@ jobs:
                                           --out /tmp/test-results/rspec.xml \
                                           --format progress \
                                           $TEST_FILES
+      - run:
+          name: Run Rubocop
+          command: |
+            rubocop
 
       # collect reports
       - store_test_results:
