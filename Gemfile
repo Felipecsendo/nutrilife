@@ -7,7 +7,7 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
-# Repository for collecting Locale data for Ruby on Rails I18n 
+# Repository for collecting Locale data for Ruby on Rails I18n
 # as well as other interesting, Rails related I18n stuff
 gem 'rails-i18n'
 # Use Puma as the app server
@@ -37,9 +37,9 @@ gem 'devise-i18n'
 gem 'simple_form'
 # Bootstrap
 gem 'rails-assets-bootstrap', '3.3.7', source: 'https://rails-assets.org'
-# Font-Awesome SASS gem for use in Ruby on Rails projects 
+# Font-Awesome SASS gem for use in Ruby on Rails projects
 gem 'font-awesome-sass'
-# Minimal authorization through OO design and pure Ruby classes 
+# Minimal authorization through OO design and pure Ruby classes
 gem 'pundit'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -47,7 +47,8 @@ gem 'jquery-rails'
 gem 'bootstrap_sb_admin_base_v2'
 # Confirm dialogs using Twitter Bootstrap
 gem 'twitter-bootstrap-rails-confirm'
-
+# Audited (formerly acts_as_audited) is an ORM extension that logs all changes to your Rails models.
+gem "audited", "~> 4.7"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -69,9 +70,9 @@ group :development, :test do
   gem 'foreman'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
-  # A library for generating fake data such as names, addresses, and phone numbers. 
+  # A library for generating fake data such as names, addresses, and phone numbers.
   gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
-  # O Lero-lero Generator é uma ferramenta capaz de gerar frases que 'falam' muita coisa mas que não tem conteúdo algum. 
+  # O Lero-lero Generator é uma ferramenta capaz de gerar frases que 'falam' muita coisa mas que não tem conteúdo algum.
   gem 'lerolero_generator'
 end
 
@@ -82,7 +83,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
