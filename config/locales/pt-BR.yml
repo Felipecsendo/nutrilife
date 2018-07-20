@@ -25,6 +25,7 @@ pt-BR:
   dashboard: Painel de Controle
   date/time: Data/Hora
   action: Ação
+  last_updates: Últimas Atualizações
   messages:
     admin_succesfully_created: 'Administrador %{admin_name} criado com sucesso!'
     admin_was_created: 'Administrador %{admin_name} foi criado.'

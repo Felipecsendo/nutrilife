@@ -21,7 +21,7 @@ feature 'Admin visit backoffice' do
     fill_in 'Senha', with: '123456'
     click_button 'Log in'
 
-    expect(page).to have_css('h3', text: 'Backoffice Blog Dashboard')
+    expect(page).to have_css('h4', text: t('last_updates'))
     expect(page).to have_css('li', text: "Olá, #{admin.admin_profile.name}")
     expect(page).to have_css('div.navbar-header a.navbar-brand',
                              text: 'Administração Nutrilife')
@@ -46,8 +46,8 @@ feature 'Admin visit backoffice' do
     login_as(admin, scope: :admin)
     visit backoffice_blog_dashboard_index_path
     
-    expect(page).to have_css('th', text: t('action'))
     expect(page).to have_css('th', text: t('administrator'))
+    expect(page).to have_css('th', text: t('action'))
     expect(page).to have_css('th', text: t('date/time'))
     
     expect(page).to have_css('td', text: t('messages.admin_was_created', admin_name: admin.admin_profile.name))
