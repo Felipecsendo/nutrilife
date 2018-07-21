@@ -42,8 +42,7 @@ feature 'Admin edit other admin', js: true do
 
   scenario 'successfully, being the profile owner itself', driver: :webkit do
     admin = create(:admin, role: 1)
-    create(:admin_profile, name: 'juca', admin: admin)
-
+    create(:admin_profile, admin: admin)
     new_name = Faker::Name.unique.name
     new_email = Faker::Internet.unique.email
     password = '123456'
@@ -72,7 +71,7 @@ feature 'Admin edit other admin', js: true do
     fill_in placeholder: t('password'), with: password
     click_button 'Log in'
     visit(backoffice_admins_path)
-    puts current_path
+    
     expect(page).to have_css('td', text: admin.id)
     expect(page).to have_css('td', text: new_name)
     expect(page).to have_css('td', text: new_email)

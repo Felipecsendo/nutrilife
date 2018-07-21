@@ -8,6 +8,7 @@ namespace :dev do
     puts "Recriando Banco... #{%x(rake db:create)}"
     puts %x(rake db:migrate)
     puts %x(rake db:seed)
+    puts " Recriando Banco de Testes... #{%x(bin/rails db:migrate RAILS_ENV=test)}"
     puts 'Setup completado com sucesso!'
   end
 end

@@ -1,6 +1,4 @@
 class AdminProfile < ApplicationRecord
-  audited
-
   # Validations
   validates :name, :description, :avatar, presence: true
 
