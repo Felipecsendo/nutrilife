@@ -1,9 +1,12 @@
 class Post < ApplicationRecord
+  audited
+
   # Validations
-  validates :title, :body, :images, :admin, :category_id, presence: true
+ # validates :title, :body, :images, :admin, :category_id, presence: true
 
   # Associations
   belongs_to :admin
+  audited associated_with: :admin
   belongs_to :category
 
   # Carrierwave uploader

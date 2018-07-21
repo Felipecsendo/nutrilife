@@ -1,4 +1,6 @@
 class Category < ApplicationRecord
+  audited
+
   # Associations
   has_many :posts, dependent: :destroy
 

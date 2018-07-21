@@ -64,6 +64,8 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     arel (9.0.0)
     ast (2.4.0)
+    audited (4.7.1)
+      activerecord (>= 4.0, < 5.3)
     bcrypt (3.1.12)
     bindex (0.5.0)
     bootstrap_sb_admin_base_v2 (0.3.6)
@@ -295,6 +297,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  audited (~> 4.7)
   bootstrap_sb_admin_base_v2
   byebug
   capybara
