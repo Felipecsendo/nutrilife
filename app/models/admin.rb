@@ -1,12 +1,12 @@
 class Admin < ApplicationRecord
   enum role: { full_access: 0, restricted_access: 1 }
-  audited only: [:email, :role]
+  audited only: %i[email role]
 
   # Associations
   has_many :posts, dependent: :destroy
   has_many :categories, dependent: :destroy
   has_associated_audits
-  has_one :admin_profile
+  has_one :admin_profile, dependent: :destroy
 
   accepts_nested_attributes_for :admin_profile, update_only: true
 
@@ -18,5 +18,4 @@ class Admin < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
 end

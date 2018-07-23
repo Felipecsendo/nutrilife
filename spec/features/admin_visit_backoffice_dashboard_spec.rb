@@ -30,9 +30,10 @@ feature 'Admin visit backoffice' do
     expect(page).to have_css('i.fa.fa-caret-down', count: 2)
     expect(page).to have_css('i.fa.fa-user.fa-fw')
 
-    expect(page).to have_link(t('dashboard'), href: backoffice_dashboard_index_path)
+    expect(page).to have_link(t('dashboard'),
+                              href: backoffice_dashboard_index_path)
   end
-  
+
   scenario 'and see the last updates' do
     admin = create(:admin)
     create(:admin_profile)
@@ -45,32 +46,50 @@ feature 'Admin visit backoffice' do
 
     login_as(admin, scope: :admin)
     visit backoffice_dashboard_index_path
-    
+
     expect(page).to have_css('th', text: t('administrator'))
     expect(page).to have_css('th', text: t('update'))
     expect(page).to have_css('th', text: t('date/time'))
-    
-    expect(page).to have_css('td', text: "Criou o Administrador: #{admin.admin_profile.name}")
-    expect(page).to have_css('td', text: admin.created_at.strftime('%d/%B/%Y - %H:%M:%S'))
-    
-    expect(page).to have_css('td', text: "Criou o Administrador: #{admin2.admin_profile.name}")
-    expect(page).to have_css('td', text: admin2.created_at.strftime('%d/%B/%Y - %H:%M:%S'))
-    
-    expect(page).to have_css('td', text: "Criou a Categoria: #{category.description}")
+
+    expect(page)
+      .to have_css('td',
+                   text: "Criou o Administrador: #{admin.admin_profile.name}")
+    expect(page)
+      .to have_css('td', text: admin.created_at.strftime('%d/%B/%Y - %H:%M:%S'))
+
+    expect(page)
+      .to have_css('td',
+                   text: "Criou o Administrador: #{admin2.admin_profile.name}")
+    expect(page).to have_css('td', text: admin2
+                                         .created_at
+                                         .strftime('%d/%B/%Y - %H:%M:%S'))
+
+    expect(page)
+      .to have_css('td', text: "Criou a Categoria: #{category.description}")
     expect(page).to have_css('td', text: category.admin.admin_profile.name)
-    expect(page).to have_css('td', text: category.created_at.strftime('%d/%B/%Y - %H:%M:%S'))
-    
-    expect(page).to have_css('td', text: "Criou a Categoria: #{category2.description}")
+    expect(page).to have_css('td', text: category
+                                         .created_at
+                                         .strftime('%d/%B/%Y - %H:%M:%S'))
+
+    expect(page)
+      .to have_css('td', text: "Criou a Categoria: #{category2.description}")
     expect(page).to have_css('td', text: category2.admin.admin_profile.name)
-    expect(page).to have_css('td', text: category2.created_at.strftime('%d/%B/%Y - %H:%M:%S'))
-    
+    expect(page).to have_css('td', text: category2
+                                         .created_at
+                                         .strftime('%d/%B/%Y - %H:%M:%S'))
+
     expect(page).to have_css('td', text: "Criou a Postagem: #{post.title}")
-    expect(page).to have_css('td', text: post.admin.admin_profile.name)
-    expect(page).to have_css('td', text: post.created_at.strftime('%d/%B/%Y - %H:%M:%S'))
-    
+    expect(page).to have_css('td', text: post
+                                         .admin
+                                         .admin_profile.name)
+    expect(page).to have_css('td', text: post
+                                         .created_at
+                                         .strftime('%d/%B/%Y - %H:%M:%S'))
+
     expect(page).to have_css('td', text: "Criou a Postagem: #{post2.title}")
     expect(page).to have_css('td', text: post2.admin.admin_profile.name)
-    expect(page).to have_css('td', text: post2.created_at.strftime('%d/%B/%Y - %H:%M:%S'))
-  
+    expect(page).to have_css('td', text: post2
+                                         .created_at
+                                         .strftime('%d/%B/%Y - %H:%M:%S'))
   end
 end

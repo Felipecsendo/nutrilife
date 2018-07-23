@@ -5,7 +5,6 @@ feature 'Admin destroy Categories', js: true do
     admin = create(:admin)
     create(:admin_profile)
     category = create(:category)
-    
 
     login_as(admin, scope: :admin)
 
