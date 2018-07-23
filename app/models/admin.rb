@@ -1,6 +1,6 @@
 class Admin < ApplicationRecord
   enum role: { full_access: 0, restricted_access: 1 }
-  audited
+  audited only: [:email, :role]
 
   # Associations
   has_many :posts, dependent: :destroy
