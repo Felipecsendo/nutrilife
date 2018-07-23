@@ -18,7 +18,7 @@ feature 'Main admin destroy other admin', js: true do
 
     expect(page)
       .to have_css('li', text: t('messages.admin_succesfully_destroyed',
-                                 admin_name: admin2.admin_profile.name))
+                                 item_name: admin2.admin_profile.name))
     expect(page).not_to have_css('td', text: admin2.id)
     expect(page).not_to have_css('td', text: admin2.admin_profile.name)
     expect(page).not_to have_css('td', text: admin2.email)

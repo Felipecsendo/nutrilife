@@ -30,7 +30,7 @@ feature 'Main admin create new admin' do
     click_button t('create')
 
     expect(page).to have_css('li', text: t('messages.admin_succesfully_created',
-                                           admin_name: name))
+                                           item_name: name))
     expect(page).to have_css('td', text: '2')
     expect(page).to have_css('td', text: name)
     expect(page).to have_css('td', text: email)

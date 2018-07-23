@@ -10,7 +10,7 @@ module Backoffice::AdminsHelper
         'confirm-cancel-class': t('btn-default'),
         'confirm-proceed': t('confirmations.proceed'),
         'confirm-proceed-class': 'btn-warning',
-        'confirm-title': t('confirmations.edit.admin_title', admin_name: options[:title])
+        'confirm-title': t('confirmations.edit.admin_title', item_name: options[:title])
       }
   end
   
@@ -26,7 +26,7 @@ module Backoffice::AdminsHelper
         'confirm-cancel-class': t('btn-default'),
         'confirm-proceed': t('confirmations.proceed'),
         'confirm-proceed-class': 'btn-danger',
-        'confirm-title': t('confirmations.destroy.admin_title', admin_name: options[:title]),
+        'confirm-title': t('confirmations.destroy.admin_title', item_name: options[:title]),
       } do
         text
         raw options[:item]

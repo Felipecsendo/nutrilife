@@ -33,7 +33,7 @@ feature 'Admin edit other admin', js: true do
     click_link t('confirmations.proceed')
 
     expect(page).to have_css('li', text: t('messages.admin_succesfully_edited',
-                                           admin_name: name))
+                                           item_name: name))
     expect(page).to have_css('td', text: admin_other.id)
     expect(page).to have_css('td', text: name)
     expect(page).to have_css('td', text: email)

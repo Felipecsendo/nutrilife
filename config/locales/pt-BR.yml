@@ -27,7 +27,7 @@ pt-BR:
   date/time: Data/Hora
   action: Ação
   update: Atualização
-  update: Atualizações
+  updates: Atualizações
   last_updates: Últimas Atualizações
   messages:
     admin_succesfully_created: 'Administrador %{item_name} criado com sucesso!'
@@ -61,7 +61,7 @@ pt-BR:
       body: Realmente deseja excluir? Essa ação não poderá ser desfeita!
       post_title: 'Excluir o Post: %{post_name}'
       category_title: 'Excluir a Categoria: %{category_description}'
-      admin_title: 'Excluir o Administrador: %{admin_name}'
+      admin_title: 'Excluir o Administrador: %{item_name}'
       category: Excluir Categoria
       post: Excluir Postagem
       admin: Excluir Administrador
@@ -69,7 +69,7 @@ pt-BR:
       body: Confirma as alterações? Essa ação não poderá ser desfeita!
       post_title: 'Editar o Post: %{post_name}'
       category_title: 'Editar a Categoria: %{category_description}'
-      admin_title: 'Editar o Administrador: %{admin_name}'
+      admin_title: 'Editar o Administrador: %{item_name}'
       category: Editar Categoria
       post: Editar Postagem
       admin: Editar Administrador

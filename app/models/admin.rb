@@ -4,6 +4,7 @@ class Admin < ApplicationRecord
 
   # Associations
   has_many :posts, dependent: :destroy
+  has_many :categories, dependent: :destroy
   has_associated_audits
   has_one :admin_profile
 

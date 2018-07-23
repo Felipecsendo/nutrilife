@@ -52,6 +52,7 @@ puts 'OUTROS ADMINISTRADORES Cadastrados com sucesso!'
 puts 'Cadastrando CATEGORIAS...'
 3.times do |i|
   Category.create!(description: Faker::Commerce.department(2, true),
+                   admin: admin,
                    avatar: Rails.root.join('public',
                                            'templates',
                                            'yummy',

@@ -3,7 +3,7 @@ module Backoffice::DashboardHelper
     case audit.auditable_type
       when 'Post' then audit.audited_changes['title']
       when 'Admin', 'AdminProfile'
-        array_or_string_name?(audit) 
+        value = AdminProfile.find(audit.auditable_id).name
       when 'Category' then audit.audited_changes['description']
       else
         audit.auditable_type

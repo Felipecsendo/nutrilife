@@ -11,6 +11,7 @@ class Backoffice::CategoriesController < BackofficeController
   
   def create
     @category = Category.new(category_params)
+    @category.admin = current_admin
     if @category.save
       redirect_to  backoffice_categories_path
     else

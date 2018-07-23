@@ -47,32 +47,30 @@ feature 'Admin visit backoffice' do
     visit backoffice_dashboard_index_path
     
     expect(page).to have_css('th', text: t('administrator'))
-    expect(page).to have_css('th', text: t('action'))
+    expect(page).to have_css('th', text: t('update'))
     expect(page).to have_css('th', text: t('date/time'))
     
-    expect(page).to have_css('td', text: t('messages.admin_was_created', admin_name: admin.admin_profile.name))
-    expect(page).to have_css('td', text: admin.admin_creator.admin_profile.name)
-    expect(page).to have_css('td', text: admin.created_at.strftime('%B %d, %Y'))
+    expect(page).to have_css('td', text: "Criou o Administrador: #{admin.admin_profile.name}")
+    expect(page).to have_css('td', text: admin.created_at.strftime('%d/%B/%Y - %H:%M:%S'))
     
-    expect(page).to have_css('td', text: t('messages.admin_was_created', admin_name: admin2.admin_profile.name))
-    expect(page).to have_css('td', text: admin2.admin_creator.admin_profile.name)
-    expect(page).to have_css('td', text: admin2.created_at.strftime('%B %d, %Y'))
+    expect(page).to have_css('td', text: "Criou o Administrador: #{admin2.admin_profile.name}")
+    expect(page).to have_css('td', text: admin2.created_at.strftime('%d/%B/%Y - %H:%M:%S'))
     
-    expect(page).to have_css('td', text: t('messages.category_was_created', category_description: category.description))
+    expect(page).to have_css('td', text: "Criou a Categoria: #{category.description}")
     expect(page).to have_css('td', text: category.admin.admin_profile.name)
-    expect(page).to have_css('td', text: category.created_at.strftime('%B %d, %Y'))
+    expect(page).to have_css('td', text: category.created_at.strftime('%d/%B/%Y - %H:%M:%S'))
     
-    expect(page).to have_css('td', text: t('messages.category_was_created', category_description: category2.description))
+    expect(page).to have_css('td', text: "Criou a Categoria: #{category2.description}")
     expect(page).to have_css('td', text: category2.admin.admin_profile.name)
-    expect(page).to have_css('td', text: category2.created_at.strftime('%B %d, %Y'))
+    expect(page).to have_css('td', text: category2.created_at.strftime('%d/%B/%Y - %H:%M:%S'))
     
-    expect(page).to have_css('td', text: t('messages.post_was_created', post_title: post.title))
+    expect(page).to have_css('td', text: "Criou a Postagem: #{post.title}")
     expect(page).to have_css('td', text: post.admin.admin_profile.name)
-    expect(page).to have_css('td', text: post.created_at.strftime('%B %d, %Y'))
+    expect(page).to have_css('td', text: post.created_at.strftime('%d/%B/%Y - %H:%M:%S'))
     
-    expect(page).to have_css('td', text: t('messages.post_was_created', post_title: post2.title))
+    expect(page).to have_css('td', text: "Criou a Postagem: #{post2.title}")
     expect(page).to have_css('td', text: post2.admin.admin_profile.name)
-    expect(page).to have_css('td', text: post2.created_at.strftime('%B %d, %Y'))
+    expect(page).to have_css('td', text: post2.created_at.strftime('%d/%B/%Y - %H:%M:%S'))
   
   end
 end

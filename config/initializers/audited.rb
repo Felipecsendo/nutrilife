@@ -1,12 +1,13 @@
 Audited.config do |config|
     config.audit_class = CustomAudit
 end
-Audited.current_user_method = :audited_admin
+Audited.max_audits = 50
+Audited.current_user_method = :authenticated_user
 
-def audited_admin
-  if current_admin
-      current_admin
-  else
-      Admin.first
+def authenticated_user
+    if current_admin
+      current_admin.admin_profile.name
+    else
+      'Elon Musk'
+    end
   end
-end
