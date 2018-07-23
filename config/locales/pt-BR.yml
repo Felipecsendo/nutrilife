@@ -9,10 +9,10 @@ pt-BR:
   posts_number: Posts nesta categoria
   about: Sobre
   follow: Siga
-  administrators: Administradores
-  administrator: Administrador
-  new_administrator: Novo Administrador
-  see_administrators: Visualizar Administradores
+  administrators: Administradores(as)
+  administrator: Administrador(a)
+  new_administrator: Novo Administrador(a)
+  see_administrators: Visualizar Administradores(as)
   name: Nome
   email: E-mail
   description: Descrição
@@ -26,26 +26,34 @@ pt-BR:
   dashboard: Painel de Controle
   date/time: Data/Hora
   action: Ação
+  update: Atualização
+  update: Atualizações
   last_updates: Últimas Atualizações
   messages:
-    admin_succesfully_created: 'Administrador %{admin_name} criado com sucesso!'
-    admin_was_created: 'Administrador %{admin_name} foi criado.'
-    admin_succesfully_edited: 'Administrador(a) %{admin_name} editado(a) com sucesso!'
-    admin_was_edited: 'Administrador(a) %{admin_name} foi editado(a).'
-    admin_succesfully_destroyed: 'Administrador(a) %{admin_name} excluído(a) com sucesso!'
-    admin_was_destroyed: 'Administrador(a) %{admin_name} excluído(a).'
-    post_succesfully_created: 'Postagem %{post_title} criada com sucesso!'
-    post_was_created: 'Postagem %{post_title} foi criada.'
-    post_succesfully_edited: 'Postagem %{post_title} editada com sucesso!'
-    post_was_edited: 'Postagem %{post_title} foi editada.'
-    post_succesfully_destroyed: 'Postagem %{post_title} excluída com sucesso!'
-    post_was_destroyed: 'Postagem %{post_title} foi excluída.'
-    category_succesfully_created: 'Categoria %{category_description} criada com sucesso!'
-    category_was_created: 'Categoria %{category_description} foi criada.'
-    category_succesfully_edited: 'Categoria %{category_description} editada com sucesso!'
-    category_was_edited: 'Categoria %{category_description} foi editada.'
-    category_succesfully_destroyed: 'Categoria %{category_description} excluída com sucesso!'
-    category_was_destroyed: 'Categoria %{category_description} foi excluída.'
+    admin_succesfully_created: 'Administrador %{item_name} criado com sucesso!'
+    admin_create: '<strong>Criou</strong> o Administrador: <strong>%{item_name}</strong>.'
+    admin_succesfully_edited: 'Administrador %{item_name} editado com sucesso!'
+    admin_update: '<strong>Editou</strong> o Administrador: <strong>%{item_name}</strong>.'
+    admin_succesfully_destroyed: 'Administrador %{item_name} excluído com sucesso!'
+    admin_destroy: '<strong>Excluiu</strong> o Administrador: <strong>%{item_name}</strong>.'
+    adminprofile_succesfully_created: 'Perfil do Administrador %{item_name} criado com sucesso!'
+    adminprofile_create: '<strong>Criou</strong> o Perfil do Administrador: <strong>%{item_name}</strong>.'
+    adminprofile_succesfully_edited: 'Perfil do Administrador %{item_name} editado com sucesso!'
+    adminprofile_update: '<strong>Editou</strong> o Perfil do Administrador: <strong>%{item_name}</strong>.'
+    adminprofile_succesfully_destroyed: 'Perfil do Administrador %{item_name} excluído com sucesso!'
+    adminprofile_destroy: '<strong>Excluiu</strong> o Perfil do Administrador: <strong>%{item_name}</strong>.'
+    post_succesfully_created: 'Postagem %{item_name} criada com sucesso!'
+    post_create: '<strong>Criou</strong> a Postagem: <strong>%{item_name}</strong>.'
+    post_succesfully_edited: 'Postagem %{item_name} editada com sucesso!'
+    post_update: '<strong>Editou</strong> a Postagem: <strong>%{item_name}</strong>.'
+    post_succesfully_destroyed: 'Postagem %{item_name} excluída com sucesso!'
+    post_destroy: '<strong>Excluiu</strong> a Postagem: <strong>%{item_name}</strong>.'
+    category_succesfully_created: 'Categoria %{item_name} criada com sucesso!'
+    category_create: '<strong>Criou</strong> a Categoria: <strong>%{item_name}</strong>.'
+    category_succesfully_edited: 'Categoria %{item_name} editada com sucesso!'
+    category_update: '<strong>Editou</strong> a Categoria: <strong>%{item_name}</strong>.'
+    category_succesfully_destroyed: 'Categoria %{item_name} excluída com sucesso!'
+    category_destroy: '<strong>Excluiu</strong> a Categoria: <strong>%{item_name}</strong>.'
   confirmations:
     cancel: Cancelar
     proceed: Confirmar
@@ -75,7 +83,9 @@ pt-BR:
           has_one: Não é possível excluir o registro pois existe um %{record} dependente
           has_many: Não é possível excluir o registro pois existem %{record} dependentes
     models:
-      post: Blog
+      post: Post
+      admin: Administrador
+      category: Categoria
     attributes:
       post:
         title: Título

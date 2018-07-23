@@ -24,6 +24,6 @@ class ApplicationController < ActionController::Base
 
   def user_not_authorized
     flash[:alert] = t('pundit.you_are_not_authorized_to_perform_this_action')
-    redirect_to(request.referer || backoffice_blog_dashboard_index_path)
+    redirect_to(request.referer || backoffice_dashboard_index_path)
   end
 end

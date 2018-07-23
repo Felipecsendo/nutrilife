@@ -15,7 +15,7 @@
                     <%= t('administrator') %>
                   </th>
                   <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" style="width: 204px;" aria-label="Browser: activate to sort column descending" aria-sort="ascending">
-                     <%= t('action') %>
+                     <%= t('update') %>
                   </th>
                   <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" style="width: 100px;" aria-label="Platform(s): activate to sort column ascending">
                     <%= t('date/time') %>
@@ -23,16 +23,13 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td class="">Gecko</td>
-                  <td class="sorting_1">Firefox 2.0</td>
-                  <td class="">Win 98+ / OSX.2+</td>
-                </tr>
-                <tr>
-                  <td class="">Gecko</td>
-                  <td class="sorting_1">Firefox 3.0</td>
-                  <td class="">Win 2k+ / OSX.3+</td>
-                </tr>
+                <% @audits.each do |audit| %>
+                  <tr>
+                    <td class=""><%= audit.username %></td>
+                    <td class="sorting_1"><%= raw t("messages.#{audit.auditable_type.downcase}_#{audit.action}", item_name: item_name(audit)) %></td>
+                    <td class=""><%= audit.created_at.strftime('%d/%B/%Y - %H:%M:%S') %></td>
+                  </tr>
+                <% end %>
               </tbody>
             </table>
           </div>

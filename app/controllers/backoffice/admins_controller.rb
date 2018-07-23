@@ -18,7 +18,7 @@ class Backoffice::AdminsController < BackofficeController
     if @admin.save
       redirect_to  backoffice_admins_path,
                   notice: t('messages.admin_succesfully_created',
-                            admin_name: @admin.admin_profile.name)
+                            item_name: @admin.admin_profile.name)
     else
       helpers.message_notices(@admin)
       render :new
@@ -33,7 +33,7 @@ class Backoffice::AdminsController < BackofficeController
     if @admin.update(admin_params)
       redirect_to  backoffice_admins_path,
                   notice: t('messages.admin_succesfully_edited',
-                  admin_name: @admin.admin_profile.name)
+                  item_name: @admin.admin_profile.name)
     else
       helpers.message_notices(@admin)
       render :edit
@@ -45,7 +45,7 @@ class Backoffice::AdminsController < BackofficeController
     if @admin.destroy
       redirect_to  backoffice_admins_path,
                   notice: t('messages.admin_succesfully_destroyed',
-                  admin_name: @admin.admin_profile.name)
+                  item_name: @admin.admin_profile.name)
     else
       helpers.message_notices(@admin)
       redirect_to  backoffice_admins_path

@@ -15,7 +15,7 @@ feature 'Admin create new blog post' do
                             "#{Random.rand(1..16)}.jpg")
 
     login_as(admin, scope: :admin)
-    visit backoffice_blog_dashboard_index_path
+    visit backoffice_dashboard_index_path
 
     click_link('Novo Post')
 

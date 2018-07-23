@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Admin visit backoffice' do
   scenario 'without authentication' do
-    visit backoffice_blog_dashboard_index_path
+    visit backoffice_dashboard_index_path
 
     expect(current_path).to eq new_admin_session_path
     expect(page)
@@ -15,7 +15,7 @@ feature 'Admin visit backoffice' do
     admin = create(:admin)
     create(:admin_profile)
 
-    visit backoffice_blog_dashboard_index_path
+    visit backoffice_dashboard_index_path
 
     fill_in 'E-mail', with: admin.email
     fill_in 'Senha', with: '123456'
@@ -30,7 +30,7 @@ feature 'Admin visit backoffice' do
     expect(page).to have_css('i.fa.fa-caret-down', count: 2)
     expect(page).to have_css('i.fa.fa-user.fa-fw')
 
-    expect(page).to have_link(t('dashboard'), href: backoffice_blog_dashboard_index_path)
+    expect(page).to have_link(t('dashboard'), href: backoffice_dashboard_index_path)
   end
   
   scenario 'and see the last updates' do
@@ -44,7 +44,7 @@ feature 'Admin visit backoffice' do
     post2 = create(:post)
 
     login_as(admin, scope: :admin)
-    visit backoffice_blog_dashboard_index_path
+    visit backoffice_dashboard_index_path
     
     expect(page).to have_css('th', text: t('administrator'))
     expect(page).to have_css('th', text: t('action'))

@@ -3,14 +3,14 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
   root 'blog/home#index'
-  get 'backoffice', to: 'backoffice/blog_dashboard#index'
+  get 'backoffice', to: 'backoffice/dashboard#index'
   
   namespace :backoffice do
-    resources :blog_dashboard, only:[:index]
+    resources :dashboard, only:[:index]
     resources :posts, only:[:index, :new, :create, :edit, :update, :destroy]
     resources :categories, only:[:index, :new, :create, :edit, :update, :destroy]
     resources :admins, only:[:index, :new, :create, :edit, :update, :destroy]
-    get 'dashboard', to: 'blog_dashboard#index'
+    get 'dashboard', to: 'dashboard#index'
   end
   
   namespace :blog do

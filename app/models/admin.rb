@@ -5,7 +5,9 @@ class Admin < ApplicationRecord
   # Associations
   has_many :posts, dependent: :destroy
   has_associated_audits
-  has_one :admin_profile, dependent: :destroy
+  has_one :admin_profile
+
+  accepts_nested_attributes_for :admin_profile
 
   # Scopes
   scope :with_full_access, -> { where role: 0 }
@@ -16,5 +18,4 @@ class Admin < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  accepts_nested_attributes_for :admin_profile
 end

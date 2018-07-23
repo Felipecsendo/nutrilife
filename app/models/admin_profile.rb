@@ -4,7 +4,7 @@ class AdminProfile < ApplicationRecord
 
   # Associations
   belongs_to :admin
-
+  audited associated_with: :admin
   # Carrierwave Uploader
   mount_uploader :avatar, AvatarUploader
 end

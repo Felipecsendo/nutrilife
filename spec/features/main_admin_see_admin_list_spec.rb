@@ -13,7 +13,7 @@ feature 'Main admin see administrators list' do
 
     login_as(admin, scope: :admin)
 
-    visit backoffice_blog_dashboard_index_path
+    visit backoffice_dashboard_index_path
 
     click_link t('administrators')
 

@@ -12,7 +12,7 @@ feature 'Admin see all Posts' do
 
     login_as(admin, scope: :admin)
 
-    visit backoffice_blog_dashboard_index_path
+    visit backoffice_dashboard_index_path
 
     click_link('Visualizar Posts')
 
