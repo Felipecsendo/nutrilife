@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :posts, only:[:index, :new, :create, :edit, :update, :destroy]
     resources :categories, only:[:index, :new, :create, :edit, :update, :destroy]
     resources :admins, only:[:index, :new, :create, :edit, :update, :destroy]
+    resources :admin_profiles, only: [:edit, :update]
     get 'dashboard', to: 'dashboard#index'
   end
   

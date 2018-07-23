@@ -7,7 +7,7 @@ class Admin < ApplicationRecord
   has_associated_audits
   has_one :admin_profile
 
-  accepts_nested_attributes_for :admin_profile
+  accepts_nested_attributes_for :admin_profile, update_only: true
 
   # Scopes
   scope :with_full_access, -> { where role: 0 }
