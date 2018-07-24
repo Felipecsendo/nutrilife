@@ -55,13 +55,29 @@ class Backoffice::AdminsController < BackofficeController
   private
   
   def admin_params
+    if password_blank?
+      params[:admin].extract! :password, :password_confirmation
+    end
+    if avatar_blank?
+      params[:admin].extract! admin_profile_attributes:[:avatar]
+    end
     params.require(:admin).permit(:email, :password, :password_confirmation,
                                   admin_profile_attributes:[:name,
                                                             :description,
                                                             :avatar])
+
   end
   
   def set_admin
     @admin = Admin.find(params[:id])
+  end
+
+  def password_blank?
+    params[:admin][:password].blank? &&
+    params[:admin][:password_confirmation].blank?
+  end
+
+  def avatar_blank?
+    params[:admin][:avatar].blank?
   end
 end

@@ -109,4 +109,18 @@ feature 'Admin edit other admin', js: true do
                    text: t('pundit' \
                            '.you_are_not_authorized_to_perform_this_action'))
   end
+
+  scenario 'successfully, leaving all the same', driver: :webkit do
+    admin = create(:admin, role: 1)
+    create(:admin_profile, admin: admin)
+
+    login_as(admin, scope: :admin)
+    visit(edit_backoffice_admin_path(admin))
+
+    click_button t('edit')
+    click_link t('confirmations.proceed')
+
+    expect(page).to have_css('li', text: t('messages.admin_succesfully_edited',
+                                           item_name: admin.admin_profile.name))
+  end
 end
