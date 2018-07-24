@@ -37,11 +37,10 @@
                               <i class='fa fa-edit'></i>
                           <% end %>
                           
-                          <%= destroy_admin_link_to '#',
+                          <%= confirm_link_to "<i class='fa fa-edit'></i>",
                                 backoffice_admin_path(admin),
-                                options:{title: admin.admin_profile.name,
-                                class: 'btn btn-danger btn-circle',
-                                item: "<i class='fa fa-edit'></i>"} %>
+                                options: {title: admin.admin_profile.name,
+                                         class: 'btn btn-danger btn-circle'} %>
                         </td>
                     </tr>
                   <% end %>

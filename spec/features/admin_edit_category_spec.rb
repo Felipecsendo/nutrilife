@@ -4,8 +4,8 @@ feature 'Admin Edit category', js: true do
   scenario 'successfully', driver: :webkit do
     admin = create(:admin)
     create(:admin_profile)
-    description = Faker::Dessert.unique.variety
-    description2 = Faker::Dessert.unique.variety
+    description = Faker::Dessert.variety
+    description2 = Faker::Dessert.topping
     image = Rails.root.join('public',
                             'templates',
                             'yummy',

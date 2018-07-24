@@ -9,15 +9,4 @@ module Backoffice::DashboardHelper
         audit.auditable_type
     end
   end
-
-  private
-  def array_or_string_name?(audit)
-    value = CustomAudit.where(auditable_type: 'AdminProfile',
-                              auditable_id: audit.auditable_id).last.audited_changes['name']
-    if value.instance_of? String 
-      value
-    elsif value.instance_of? Array
-      value.first
-    end
-  end
 end
