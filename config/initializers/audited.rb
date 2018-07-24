@@ -8,6 +8,6 @@ def authenticated_user
     if current_admin
       current_admin.admin_profile.name
     else
-      'Elon Musk'
+      t('unknown')
     end
   end

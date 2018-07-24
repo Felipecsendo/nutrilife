@@ -1,6 +1,5 @@
 class Backoffice::DashboardController < BackofficeController
   def index
-    @banana = Category.all
-    @audits = CustomAudit.all.reverse
+    @audits = CustomAudit.all
   end
 end
