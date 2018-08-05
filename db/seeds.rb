@@ -5,6 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+def create_admin_profile(admin)
+  profile = AdminProfile.new(name: Faker::Name.name,
+                             description: LeroleroGenerator.sentence(1),
+                             admin: admin)
+  
+  avatar = Rails.root.join('public',
+                           'templates',
+                           'yummy',
+                           'img',
+                           'blog-img',
+                           "#{Random.rand(17..19)}.jpg")
+  profile.avatar.attach(io: File.open(avatar), filename: File.basename(avatar))
+  profile.save!
+end
 
 puts 'Cadastrando ADMINISTRADOR Principal...'
 admin = Admin.create!(email: 'admin@admin.com',
@@ -13,70 +27,53 @@ admin = Admin.create!(email: 'admin@admin.com',
               role: 0
               )
 puts 'Cadastrando PERFIL DE ADMINISTRADOR Principal...'
- AdminProfile.create!(name: Faker::Name.name,
-                      description: LeroleroGenerator.sentence(1),
-                      admin: admin,
-                      avatar: Rails.root.join('public',
-                                        'templates',
-                                        'yummy',
-                                        'img',
-                                        'blog-img',
-                                        "#{Random.rand(17..19)}.jpg")
-                                        .open,
-                      )
+ create_admin_profile(admin)
+ puts 'PERFIL DE ADMINISTRADOR Principal cadastrado com sucesso!'
 puts 'ADMINISTRADOR Cadastrado com sucesso!'
 
 puts 'Cadastrando OUTROS ADMINISTRADORES...'
 10.times do
   
   admin = Admin.create!(email: Faker::Internet.email,
-                password: '123456',
-                password_confirmation: '123456',
-                role: 1
-                )
-  puts 'Cadastrando PERFIL DE OUTROS ADMINISTRADORES...'
-   AdminProfile.create!(name: Faker::Name.name,
-                        description: LeroleroGenerator.sentence(1),
-                        admin: admin,
-                        avatar: Rails.root.join('public',
-                                          'templates',
-                                          'yummy',
-                                          'img',
-                                          'blog-img',
-                                          "#{Random.rand(17..19)}.jpg")
-                                          .open,
-                        )
+                        password: '123456',
+                        password_confirmation: '123456',
+                        role: 1)
+  create_admin_profile(admin)
 end
 puts 'OUTROS ADMINISTRADORES Cadastrados com sucesso!'
 
 puts 'Cadastrando CATEGORIAS...'
 3.times do |i|
-  Category.create!(description: Faker::Commerce.department(2, true),
-                   admin: admin,
-                   avatar: Rails.root.join('public',
-                                           'templates',
-                                           'yummy',
-                                           'img',
-                                           'catagory-img',
-                                           "#{i+1}.jpg")
-                                           .open
-                  )
+  category = Category.new(description: Faker::Commerce.department(2, true),
+                          admin: admin
+                          )
+  cover = Rails.root.join('public',
+                          'templates',
+                          'yummy',
+                          'img',
+                          'catagory-img',
+                          "#{i+1}.jpg")
+
+  category.cover.attach(io: File.open(cover), filename: File.basename(cover))
+  category.save!
 end
 puts 'CATEGORIAS Cadastradas com sucesso!'
   
 puts 'Cadastrando BLOGS...'
 10.times do
-  Post.create!(title: Faker::Dessert.variety,
-               body: LeroleroGenerator.sentence(3),
-               admin: Admin.first,
-               category: Category.all.sample,
-               images: [Rails.root.join('public',
-                                        'templates',
-                                        'yummy',
-                                        'img',
-                                        'blog-img',
-                                        "#{Random.rand(1..16)}.jpg")
-                                        .open]
-              )
+  post = Post.new(title: Faker::Dessert.variety,
+                  body: LeroleroGenerator.sentence(3),
+                  admin: Admin.first,
+                  category: Category.all.sample)
+
+  cover = Rails.root.join('public',
+                          'templates',
+                          'yummy',
+                          'img',
+                          'blog-img',
+                          "#{Random.rand(1..16)}.jpg")
+
+  post.cover.attach(io: File.open(cover), filename: File.basename(cover))
+  post.save!
 end
 puts 'BLOGS Cadastrados com sucesso!'

@@ -25,7 +25,7 @@ class Backoffice::CategoriesController < BackofficeController
   def update
     if @category.update(category_params)
       redirect_to  backoffice_categories_path, notice: 'Categoria editada com sucesso!'
-    else
+    else 
       helpers.message_notices(@category)
       render :edit
     end
@@ -43,7 +43,7 @@ class Backoffice::CategoriesController < BackofficeController
   private
   
   def category_params
-    params.require(:category).permit(:description, :avatar)
+    params.require(:category).permit(:description, :cover)
   end
   
   def set_category

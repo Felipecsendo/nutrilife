@@ -51,9 +51,6 @@ gem 'twitter-bootstrap-rails-confirm'
 gem "audited", "~> 4.7"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
-# Classier solution for file uploads for Rails, Sinatra and other Ruby web frameworks
-gem 'carrierwave', '~> 1.0'
 # MiniMagick
 gem 'mini_magick'
 

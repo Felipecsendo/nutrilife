@@ -2,14 +2,13 @@ class Post < ApplicationRecord
   audited
 
   # Validations
-  validates :title, :body, :images, :admin, :category_id, presence: true
+  validates :title, :body, :cover, :admin, :category_id, presence: true
 
   # Associations
   belongs_to :admin
   audited associated_with: :admin
   belongs_to :category
 
-  # Carrierwave uploader
-  mount_uploaders :images, ImageUploader
-  serialize :images, JSON # If you use SQLite, add this line.
+  # Active Storage Attachment
+  has_one_attached :cover
 end
