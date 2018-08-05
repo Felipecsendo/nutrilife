@@ -54,7 +54,7 @@ class Backoffice::PostsController < BackofficeController
   end
   
   def post_params
-    params.require(:post).permit(:title, :body, :category_id, { images: [] })
+    params.require(:post).permit(:title, :body, :category_id, :cover)
   end
 
 end

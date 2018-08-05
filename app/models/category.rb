@@ -5,6 +5,6 @@ class Category < ApplicationRecord
   belongs_to :admin
   has_many :posts, dependent: :destroy
 
-  # Carrierwave uploader
-  mount_uploader :avatar, AvatarUploader
+  # Active Storage Attachment
+  has_one_attached :cover
 end
