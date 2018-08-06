@@ -30,6 +30,8 @@ pt-BR:
   updates: Atualizações
   last_updates: Últimas Atualizações
   messages:
+    must_be_jpeg_or_png: precisa ser JPEG ou PNG
+    cannot_be_blank: não pode ficar em branco
     admin_succesfully_created: 'Administrador %{item_name} criado com sucesso!'
     admin_create: '<strong>Criou</strong> o Administrador: <strong>%{item_name}</strong>.'
     admin_succesfully_edited: 'Administrador %{item_name} editado com sucesso!'

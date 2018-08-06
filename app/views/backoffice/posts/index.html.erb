@@ -6,7 +6,7 @@
   <% unless post.created_at == post.updated_at %>
     <%= link_to "#{t 'updated_at'}: #{post.updated_at.strftime('%B %d, %Y')}", '#'  %>
   <% end %>
-  <%= image_tag post.images.first.url %>
+  <%= image_tag post.cover %>
   <%= link_to t('confirmations.edit.post'), edit_backoffice_post_path(post) %>
   <%= confirm_link_to t('confirmations.destroy.post'),
                       backoffice_post_path(post),

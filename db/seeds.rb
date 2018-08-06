@@ -10,12 +10,11 @@ def create_admin_profile(admin)
                              description: LeroleroGenerator.sentence(1),
                              admin: admin)
   
-  avatar = Rails.root.join('public',
-                           'templates',
-                           'yummy',
-                           'img',
-                           'blog-img',
-                           "#{Random.rand(17..19)}.jpg")
+  avatar = Rails.root.join('spec',
+                           'resources',
+                           'images',
+                           'profile',
+                           "#{Random.rand(1..4)}.jpg")
   profile.avatar.attach(io: File.open(avatar), filename: File.basename(avatar))
   profile.save!
 end
@@ -47,11 +46,10 @@ puts 'Cadastrando CATEGORIAS...'
   category = Category.new(description: Faker::Commerce.department(2, true),
                           admin: admin
                           )
-  cover = Rails.root.join('public',
-                          'templates',
-                          'yummy',
-                          'img',
-                          'catagory-img',
+  cover = Rails.root.join('spec',
+                          'resources',
+                          'images',
+                          'category',
                           "#{i+1}.jpg")
 
   category.cover.attach(io: File.open(cover), filename: File.basename(cover))
@@ -66,12 +64,11 @@ puts 'Cadastrando BLOGS...'
                   admin: Admin.first,
                   category: Category.all.sample)
 
-  cover = Rails.root.join('public',
-                          'templates',
-                          'yummy',
-                          'img',
-                          'blog-img',
-                          "#{Random.rand(1..16)}.jpg")
+  cover = Rails.root.join('spec',
+                          'resources',
+                          'images',
+                          'blog',
+                          "#{Random.rand(1..9)}.jpg")
 
   post.cover.attach(io: File.open(cover), filename: File.basename(cover))
   post.save!

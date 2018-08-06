@@ -19,7 +19,7 @@ feature 'Admin destroy Categories', js: true do
                                  text: "Editado em: #{category.updated_at
                                                     .strftime('%B %d, %Y')}")
     expect(page).not_to have_css("img[src*='#{category
-                                              .avatar.file.identifier}']")
+                                              .cover.filename}']")
   end
 
   Capybara.use_default_driver

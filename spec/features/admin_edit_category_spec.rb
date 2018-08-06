@@ -6,12 +6,11 @@ feature 'Admin Edit category', js: true do
     create(:admin_profile)
     description = Faker::Dessert.variety
     description2 = Faker::Dessert.topping
-    image = Rails.root.join('public',
-                            'templates',
-                            'yummy',
-                            'img',
-                            'blog-img',
-                            "#{Random.rand(1..5)}.jpg")
+    image = Rails.root.join('spec',
+                            'resources',
+                            'images',
+                            'blog',
+                            "#{Random.rand(2..9)}.jpg")
 
     category = create(:category, description: description)
 
@@ -35,9 +34,8 @@ feature 'Admin Edit category', js: true do
     expect(page).not_to have_css('h3', text: description)
 
     expect(page)
-      .not_to have_css("img[src*='#{File
-                                    .basename(category
-                                              .avatar.file.identifier)}']")
+      .not_to have_css("img[src*='#{File.basename(category
+                                                  .cover.filename.to_s)}']")
   end
 
   Capybara.use_default_driver
