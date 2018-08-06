@@ -18,6 +18,7 @@
 !/tmp/.keep
 /public/templates/sb-admin
 /public/uploads
+/storage
 /node_modules
 /yarn-error.log
 
