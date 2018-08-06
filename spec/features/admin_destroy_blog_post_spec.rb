@@ -28,7 +28,7 @@ feature 'Admin destroy Post Posts', js: true do
                                                .updated_at
                                                .strftime('%B %d, %Y')}")
     expect(page)
-      .not_to have_css("img[src*='#{post.images.first.file.identifier}']")
+      .not_to have_css("img[src*='#{post.cover.filename}']")
   end
 
   Capybara.use_default_driver

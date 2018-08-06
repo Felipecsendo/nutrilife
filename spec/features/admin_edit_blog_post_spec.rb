@@ -10,12 +10,11 @@ feature 'Admin edit Post Post' do
 
     title = Faker::Food.dish
     body = Faker::Food.description
-    image = Rails.root.join('public',
-                            'templates',
-                            'yummy',
-                            'img',
-                            'blog-img',
-                            "#{Random.rand(1..16)}.jpg")
+    image = Rails.root.join('spec',
+                            'resources',
+                            'images',
+                            'blog',
+                            "#{Random.rand(1..9)}.jpg")
 
     login_as(admin, scope: :admin)
 

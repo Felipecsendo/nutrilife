@@ -7,8 +7,11 @@ feature 'Admin see all Posts' do
     create(:category)
     post = create(:post)
     post2 = create(:post,
-                   images: [Rails.root.join('public', 'Nutritionist2.jpg')
-                   .open])
+                   cover: Rails.root.join('spec',
+                                          'resources',
+                                          'images',
+                                          'other',
+                                          'Nutritionist2.jpg'))
 
     login_as(admin, scope: :admin)
 
@@ -22,8 +25,8 @@ feature 'Admin see all Posts' do
     expect(page).to have_css('a', text: post.admin.admin_profile.name)
     expect(page).to have_css('p', text: post.body[0..96])
     expect(page).to have_css('a', text: post.created_at.strftime('%B %d, %Y'))
-    expect(page).to have_css("img[src*='#{post.images.first.file.identifier}']")
-    expect(page).to have_css("img[src*='#{post.images.first.file.identifier}']")
+    expect(page).to have_css("img[src*='#{post.cover.filename}']")
+    expect(page).to have_css("img[src*='#{post.cover.filename}']")
 
     expect(page).to have_link(t('edit'),
                               href: edit_backoffice_post_path(post.id))
@@ -33,10 +36,7 @@ feature 'Admin see all Posts' do
     expect(page).to have_css('a', text: post.admin.admin_profile.name)
     expect(page).to have_css('p', text: post2.body[0..96])
     expect(page).to have_css('a', text: post2.created_at.strftime('%B %d, %Y'))
-    expect(page).to have_css("img[src*='#{post2
-                                          .images
-                                          .first
-                                          .file.identifier}']")
+    expect(page).to have_css("img[src*='#{post2.cover.filename}']")
 
     expect(page).to have_link(t('edit'),
                               href: edit_backoffice_post_path(post2.id))

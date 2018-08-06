@@ -5,21 +5,19 @@ feature 'Admin create new category' do
     admin = create(:admin)
     create(:admin_profile)
     description = Faker::Dessert.variety
-    image = Rails.root.join('public',
-                            'templates',
-                            'yummy',
-                            'img',
-                            'blog-img',
-                            "#{Random.rand(1..5)}.jpg")
+    image = Rails.root.join('spec',
+                            'resources',
+                            'images',
+                            'category',
+                            "#{Random.rand(1..3)}.jpg")
 
-    image2 = Rails.root.join('public',
-                             'templates',
-                             'yummy',
-                             'img',
-                             'blog-img',
-                             "#{Random.rand(6..10)}.jpg")
+    image2 = Rails.root.join('spec',
+                             'resources',
+                             'images',
+                             'category',
+                             "#{Random.rand(1..3)}.jpg")
 
-    category = create(:category, avatar: image2.open)
+    category = create(:category, cover: image2)
     create(:post, category: category)
 
     login_as(admin, scope: :admin)
@@ -34,9 +32,8 @@ feature 'Admin create new category' do
     expect(page).to have_current_path(backoffice_categories_path)
 
     expect(page).to have_css('h3', text: description)
-    expect(page).to have_css('a',
-                             text: "Criado em: #{Time.zone.now
-                                                .strftime('%B %d, %Y')}")
+    expect(page).to have_css('a', text: "Criado em: #{Time.zone.now
+                                                      .strftime('%B %d, %Y')}")
     expect(page).to have_css('a', text: 'Posts nesta categoria: 0')
     expect(page).to have_css("img[src*='#{File.basename(image)}']")
 

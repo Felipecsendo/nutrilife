@@ -8,12 +8,11 @@ feature 'Main admin create new admin' do
     email = Faker::Internet.email
     password = '123456'
     description = Faker::Lorem.sentence
-    image = Rails.root.join('public',
-                            'templates',
-                            'yummy',
-                            'img',
-                            'blog-img',
-                            "#{Random.rand(1..16)}.jpg")
+    image = Rails.root.join('spec',
+                            'resources',
+                            'images',
+                            'blog',
+                            "#{Random.rand(1..9)}.jpg")
 
     login_as(admin, scope: :admin)
     visit(backoffice_admins_path)

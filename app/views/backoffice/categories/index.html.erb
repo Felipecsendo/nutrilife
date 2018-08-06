@@ -1,5 +1,5 @@
 <% @categories.each do |category| %>
-<%= image_tag category.avatar.url %>
+<%= image_tag category.cover %>
 <h3> <%= category.description %> </h3>
 <%= link_to "#{t('created_at')}: #{category.created_at.strftime("%B %d, %Y")}", '#'  %>
 <%= link_to "#{t('updated_at')}: #{category.updated_at.strftime('%B %d, %Y')}", '#'  %>

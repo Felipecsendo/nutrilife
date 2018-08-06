@@ -7,12 +7,11 @@ feature 'Admin create new blog post' do
     category = create(:category)
     title = Faker::Dessert.variety
     body = LeroleroGenerator.sentence(3)
-    image = Rails.root.join('public',
-                            'templates',
-                            'yummy',
-                            'img',
-                            'blog-img',
-                            "#{Random.rand(1..16)}.jpg")
+    image = Rails.root.join('spec',
+                            'resources',
+                            'images',
+                            'blog',
+                            "#{Random.rand(1..9)}.jpg")
 
     login_as(admin, scope: :admin)
     visit backoffice_dashboard_index_path

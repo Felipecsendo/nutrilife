@@ -30,7 +30,7 @@ feature 'Admin see all Categories' do
                                                                   .posts
                                                                   .count}")
 
-    expect(page).to have_css("img[src*='#{category.avatar.file.identifier}']")
+    expect(page).to have_css("img[src*='#{category.cover.filename}']")
 
     expect(page).to have_css('h3', text: category2.description)
     expect(page).to have_css('a', text: "Criado em: #{category2
@@ -41,6 +41,6 @@ feature 'Admin see all Categories' do
                                                                  .posts
                                                                  .count}")
 
-    expect(page).to have_css("img[src*='#{category2.avatar.file.identifier}']")
+    expect(page).to have_css("img[src*='#{category2.cover.filename}']")
   end
 end
