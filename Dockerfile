@@ -1,7 +1,10 @@
 FROM ruby:2.5.1
 LABEL maintainer='Felipe Endo'
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> c20ffba2384c39e7d00373f29684ead8256a2a85
 COPY Gemfile Gemfile
 COPY Gemfile.lock Gemfile.lock
 
@@ -26,15 +29,6 @@ EXPOSE 80
 WORKDIR /nutrilife
 ADD . /nutrilife
 VOLUME ./nutrilife
-<<<<<<< HEAD
-=======
+
 ENTRYPOINT ["/bin/bash"]
->>>>>>> f2c5626... Dockerfile
-
-
-
-
-    
-
-
 
