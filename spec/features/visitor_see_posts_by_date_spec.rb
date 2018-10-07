@@ -2,18 +2,20 @@ require 'rails_helper'
 
 feature 'Visitor see posts filter by date' do
   scenario 'successfully' do
-    create(:admin)
-    create(:admin_profile)
-    create(:category)
+    admin = create(:admin)
+    create(:admin_profile, admin: admin)
+    category = create(:category, admin: admin)
     image = Rails.root.join('public',
                             'templates',
                             'yummy',
                             'img',
                             'blog-img',
                             "#{Random.rand(1..16)}.jpg")
-    post = create(:post)
-    post2 = create(:post)
-    post3 = create(:post, title: Faker::Name.unique.name,
+    post = create(:post, admin: admin, category: category)
+    post2 = create(:post, admin: admin, category: category)
+    post3 = create(:post, admin: admin,
+                          category: category,
+                          title: Faker::Name.unique.name,
                           created_at: Date.yesterday.to_s,
                           images: [image.open])
 

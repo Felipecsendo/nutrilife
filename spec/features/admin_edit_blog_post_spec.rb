@@ -3,10 +3,10 @@ require 'rails_helper'
 feature 'Admin edit Post Post' do
   scenario 'successfully' do
     admin = create(:admin)
-    create(:admin_profile)
-    create(:category)
-    category2 = create(:category)
-    post = create(:post)
+    create(:admin_profile, admin: admin)
+    category = create(:category, admin: admin)
+    category2 = create(:category, admin: admin)
+    post = create(:post, admin: admin, category: category)
 
     title = Faker::Food.dish
     body = Faker::Food.description

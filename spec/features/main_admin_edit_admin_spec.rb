@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Admin edit other admin', js: true do
   scenario 'successfully, being Full Access Admin', driver: :webkit do
     admin = create(:admin, role: 0)
-    create(:admin_profile)
+    create(:admin_profile, admin: admin)
     admin_other = create(:admin, role: 1)
     create(:admin_profile, admin: admin_other)
 

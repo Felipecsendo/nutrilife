@@ -3,8 +3,8 @@ require 'rails_helper'
 feature 'Admin create new blog post' do
   scenario 'successfully' do
     admin = create(:admin)
-    create(:admin_profile)
-    category = create(:category)
+    create(:admin_profile, admin: admin)
+    category = create(:category, admin: admin)
     title = Faker::Dessert.variety
     body = LeroleroGenerator.sentence(3)
     image = Rails.root.join('public',
@@ -36,8 +36,8 @@ feature 'Admin create new blog post' do
 
   scenario 'but fields are blank' do
     admin = create(:admin)
-    create(:admin_profile)
-    create(:category)
+    create(:admin_profile, admin: admin)
+    create(:category, admin: admin)
 
     login_as(admin, scope: :admin)
 

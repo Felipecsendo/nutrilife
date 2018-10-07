@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Main admin create new admin' do
   scenario 'successfully' do
     admin = create(:admin, role: 0)
-    create(:admin_profile)
+    create(:admin_profile, admin: admin)
     name = Faker::Name.name
     email = Faker::Internet.email
     password = '123456'
@@ -39,7 +39,7 @@ feature 'Main admin create new admin' do
 
   scenario 'but leaves blank fields' do
     admin = create(:admin, role: 0)
-    create(:admin_profile)
+    create(:admin_profile, admin: admin)
 
     login_as(admin, scope: :admin)
     visit(new_backoffice_admin_path)
@@ -55,7 +55,7 @@ feature 'Main admin create new admin' do
 
   scenario 'but dont have the authorization' do
     admin = create(:admin, role: 1)
-    create(:admin_profile)
+    create(:admin_profile, admin: admin)
 
     login_as(admin, scope: :admin)
     visit(backoffice_admins_path)
@@ -65,7 +65,7 @@ feature 'Main admin create new admin' do
 
   scenario 'but dont have the authorization and try it by route' do
     admin = create(:admin, role: 1)
-    create(:admin_profile)
+    create(:admin_profile, admin: admin)
 
     login_as(admin, scope: :admin)
     visit(new_backoffice_admin_path)

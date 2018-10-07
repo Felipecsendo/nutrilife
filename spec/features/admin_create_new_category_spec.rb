@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Admin create new category' do
   scenario 'successfully' do
     admin = create(:admin)
-    create(:admin_profile)
+    create(:admin_profile, admin: admin)
     description = Faker::Dessert.variety
     image = Rails.root.join('public',
                             'templates',
@@ -19,8 +19,8 @@ feature 'Admin create new category' do
                              'blog-img',
                              "#{Random.rand(6..10)}.jpg")
 
-    category = create(:category, avatar: image2.open)
-    create(:post, category: category)
+    category = create(:category, admin: admin, avatar: image2.open)
+    create(:post, admin: admin, category: category)
 
     login_as(admin, scope: :admin)
     visit backoffice_dashboard_index_path
