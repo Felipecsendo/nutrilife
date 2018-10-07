@@ -4,8 +4,8 @@ feature 'Visitor visit homepage' do
   scenario 'successfully' do
     admin = create(:admin)
     create(:admin_profile, admin: admin)
-    create(:category)
-    create(:post)
+    category = create(:category, admin: admin)
+    create(:post, admin: admin, category: category)
 
     visit root_path
 
@@ -16,9 +16,11 @@ feature 'Visitor visit homepage' do
   scenario 'and see the Posts' do
     admin = create(:admin)
     create(:admin_profile, admin: admin)
-    create(:category)
-    post = create(:post)
-    post2 = create(:post, images: [Rails
+    category = create(:category, admin: admin)
+    post = create(:post, admin: admin, category: category)
+    post2 = create(:post, admin: admin,
+                          category: category,
+                          images: [Rails
                                    .root
                                    .join('public', 'Nutritionist2.jpg').open])
 
@@ -41,10 +43,10 @@ feature 'Visitor visit homepage' do
   scenario 'and see the categories' do
     admin = create(:admin)
     create(:admin_profile, admin: admin)
-    category1 = create(:category)
-    category2 = create(:category)
-    category3 = create(:category)
-    create(:post)
+    category1 = create(:category, admin: admin)
+    category2 = create(:category, admin: admin)
+    category3 = create(:category, admin: admin)
+    create(:post, admin: admin, category: category1)
 
     visit root_path
 
@@ -61,8 +63,8 @@ feature 'Visitor visit homepage' do
   scenario 'and see admin info' do
     admin = create(:admin)
     create(:admin_profile, admin: admin)
-    create(:category)
-    create(:post)
+    category = create(:category, admin: admin)
+    create(:post, admin: admin, category: category)
 
     visit root_path
 
@@ -78,9 +80,9 @@ feature 'Visitor visit homepage' do
   scenario 'and see social networks' do
     admin = create(:admin)
     create(:admin_profile, admin: admin)
-    create(:admin_profile)
-    create(:category)
-    create(:post)
+    create(:admin_profile, admin: admin)
+    category = create(:category, admin: admin)
+    create(:post, admin: admin, category: category)
 
     visit root_path
 

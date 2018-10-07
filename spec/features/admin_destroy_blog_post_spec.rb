@@ -3,9 +3,9 @@ require 'rails_helper'
 feature 'Admin destroy Post Posts', js: true do
   scenario 'successfully', driver: :webkit do
     admin = create(:admin)
-    create(:admin_profile)
-    create(:category)
-    post = create(:post)
+    create(:admin_profile, admin: admin)
+    category = create(:category, admin: admin)
+    post = create(:post, admin: admin, category: category)
 
     login_as(admin, scope: :admin)
 

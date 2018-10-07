@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Admin Edit category', js: true do
   scenario 'successfully', driver: :webkit do
     admin = create(:admin)
-    create(:admin_profile)
+    create(:admin_profile, admin: admin)
     description = Faker::Dessert.variety
     description2 = Faker::Dessert.topping
     image = Rails.root.join('public',
@@ -13,7 +13,7 @@ feature 'Admin Edit category', js: true do
                             'blog-img',
                             "#{Random.rand(1..5)}.jpg")
 
-    category = create(:category, description: description)
+    category = create(:category, admin: admin, description: description)
 
     login_as(admin, scope: :admin)
     visit backoffice_categories_path

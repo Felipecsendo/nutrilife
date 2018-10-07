@@ -13,7 +13,7 @@ feature 'Admin visit backoffice' do
 
   scenario 'successfully' do
     admin = create(:admin)
-    create(:admin_profile)
+    create(:admin_profile, admin: admin)
 
     visit backoffice_dashboard_index_path
 
@@ -36,13 +36,13 @@ feature 'Admin visit backoffice' do
 
   scenario 'and see the last updates' do
     admin = create(:admin)
-    create(:admin_profile)
+    create(:admin_profile, admin: admin)
     admin2 = create(:admin)
     create(:admin_profile, admin: admin2)
-    category = create(:category)
-    category2 = create(:category)
-    post = create(:post)
-    post2 = create(:post)
+    category = create(:category, admin: admin)
+    category2 = create(:category, admin: admin)
+    post = create(:post, admin: admin, category: category)
+    post2 = create(:post, admin: admin, category: category)
 
     login_as(admin, scope: :admin)
     visit backoffice_dashboard_index_path

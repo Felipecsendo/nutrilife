@@ -1,5 +1,5 @@
 FROM ruby:2.5.1
-LABEL maintainer='Felipe Endo'
+LABEL maintainer='Nutrilife'
 
 COPY Gemfile Gemfile
 COPY Gemfile.lock Gemfile.lock

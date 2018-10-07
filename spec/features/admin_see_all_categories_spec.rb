@@ -3,16 +3,17 @@ require 'rails_helper'
 feature 'Admin see all Categories' do
   scenario 'successfully' do
     admin = create(:admin)
-    create(:admin_profile)
-    category = create(:category)
-    category2 = create(:category, avatar: Rails
+    create(:admin_profile, admin: admin)
+    category = create(:category, admin: admin)
+    category2 = create(:category, admin: admin, 
+                                          avatar: Rails
                                           .root
                                           .join('public', 'Nutritionist2.jpg')
                                           .open)
 
-    create(:post, category: category)
-    create(:post, category: category)
-    create(:post, category: category2)
+    create(:post, admin: admin, category: category)
+    create(:post, admin: admin, category: category)
+    create(:post, admin: admin, category: category2)
 
     login_as(admin, scope: :admin)
 

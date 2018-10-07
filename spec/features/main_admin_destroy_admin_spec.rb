@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Main admin destroy other admin', js: true do
   scenario 'successfully', driver: :webkit do
     admin = create(:admin, role: 0)
-    create(:admin_profile)
+    create(:admin_profile, admin: admin)
 
     admin2 = create(:admin)
     create(:admin_profile, admin_id: admin2.id)
@@ -27,7 +27,7 @@ feature 'Main admin destroy other admin', js: true do
 
   scenario 'but dont have the authorization', driver: :rack_test do
     admin = create(:admin, role: 0)
-    create(:admin_profile)
+    create(:admin_profile, admin: admin)
 
     admin2 = create(:admin, role: 1)
     create(:admin_profile, admin_id: admin2.id)

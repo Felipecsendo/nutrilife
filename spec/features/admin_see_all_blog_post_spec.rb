@@ -3,10 +3,11 @@ require 'rails_helper'
 feature 'Admin see all Posts' do
   scenario 'successfully' do
     admin = create(:admin)
-    create(:admin_profile)
-    create(:category)
-    post = create(:post)
-    post2 = create(:post,
+    create(:admin_profile, admin: admin)
+    category = create(:category, admin: admin)
+    post = create(:post, admin: admin, category: category)
+    post2 = create(:post, category: category,
+                   admin: admin,
                    images: [Rails.root.join('public', 'Nutritionist2.jpg')
                    .open])
 

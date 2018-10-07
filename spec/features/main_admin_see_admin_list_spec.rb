@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Main admin see administrators list' do
   scenario 'successfully' do
     admin = create(:admin)
-    create(:admin_profile)
+    create(:admin_profile, admin: admin)
 
     admin2 = create(:admin)
     create(:admin_profile, admin_id: admin2.id)

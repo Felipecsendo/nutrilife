@@ -3,8 +3,8 @@ require 'rails_helper'
 feature 'Admin destroy Categories', js: true do
   scenario 'successfully', driver: :webkit do
     admin = create(:admin)
-    create(:admin_profile)
-    category = create(:category)
+    create(:admin_profile, admin: admin)
+    category = create(:category, admin: admin)
 
     login_as(admin, scope: :admin)
 
